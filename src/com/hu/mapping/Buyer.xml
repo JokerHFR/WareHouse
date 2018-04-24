@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="buyer">
+	<select id="buyerLogin" resultType="Buyer" parameterType="java.util.Map">
+		select * from t_buyer where buyernum=#{uname} and buyerword=#{uword}
+	</select>
+	<select id="buyerRegister" resultType="Buyer" parameterType="java.util.Map">
+		insert into t_buyer(buyername,buyerword,buyermoney) values(#{uname},#{uword},0) 
+	</select>
+	<select id="buyerInformation" resultType="Buyer" parameterType="java.util.Map">
+		update t_buyer set buyername=#{uname},buyersex=#{sex},buyerbirth=#{date},buyertele=#{tele},buyeremail=#{email} where buyerid=#{id}
+	</select>
+</mapper>

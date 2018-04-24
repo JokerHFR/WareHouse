@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+	<select id="userLogin" resultType="User" parameterType="java.util.Map">
+		select * from w_user where username=#{uname} and passwordcode=#{uword} 
+	</select>
+	<select id="userRegister" resultType="User" parameterType="java.util.Map">
+		insert into w_user(username,passwordcode,isuse) values(#{uname},#{uword},1) 
+	</select>
+	<select id="userChange" resultType="int" parameterType="java.util.Map">
+		update  w_user set passwordcode=#{uword}  where username=#{uname}
+	</select>
+</mapper>
