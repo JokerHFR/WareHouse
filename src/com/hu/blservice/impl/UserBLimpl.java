@@ -1,5 +1,7 @@
 package com.hu.blservice.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -27,9 +29,15 @@ public class UserBLimpl implements UserBL{
 	}
 
 	@Override
-	public int registerUser(String uname, String uword, int isuse) throws Exception {
+	public int registerUser(String uname, String uword) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		int i=0;
+		if(this.findregisterUser(uname)==0){
+			i=this.userDAO.register(uname, uword);
+		}else if(this.findregisterUser(uname)==1){
+			i=2;
+		}
+		return i;
 	}
 
 	@Override
@@ -37,5 +45,47 @@ public class UserBLimpl implements UserBL{
 			throws Exception {
 		// TODO Auto-generated method stub
 		return userDAO.change(uname,uword);
+	}
+
+	@Override
+	public int findregisterUser(String uname) throws Exception {
+		// TODO Auto-generated method stub
+		return userDAO.findregisterUser(uname);
+	}
+
+	@Override
+	public List<User> findUser() throws Exception {
+		// TODO Auto-generated method stub
+		return userDAO.findUser();
+	}
+
+	@Override
+	public int deleteUser(List<String> uname) {
+		// TODO Auto-generated method stub
+		int a=0;
+		for(int i=0;i<uname.size();i++){
+			a=this.userDAO.deleteUser(uname.get(i));
+		}
+		return a;
+	}
+
+	@Override
+	public int updateisUse(List<String> uname) {
+		// TODO Auto-generated method stub
+		int a=0;
+		for(int i=0;i<uname.size();i++){
+			a=this.userDAO.updateisUse(uname.get(i));
+		}
+		return a;
+	}
+
+	@Override
+	public int updatenoUse(List<String> uname) {
+		// TODO Auto-generated method stub
+		int a=0;
+		for(int i=0;i<uname.size();i++){
+			a=this.userDAO.updatenoUse(uname.get(i));
+		}
+		return a;
 	}
 }

@@ -6,6 +6,15 @@ public class User {
     private String userword;;
     private int isuse;
     
+    public  User(){
+    	
+    }
+    public  User(long id,String username,String userword,int isuse){
+    	this.userid=id;
+    	this.username=username;
+    	this.userword=userword;
+    	this.isuse=isuse; 	
+    }
     public long getUserid() {
         return userid;
     }

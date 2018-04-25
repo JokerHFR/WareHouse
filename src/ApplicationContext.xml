@@ -129,5 +129,4 @@
 	<bean id="supplierBL" class="com.hu.blservice.impl.SupplierBLimpl"/>
 	<bean id="userBL" class="com.hu.blservice.impl.UserBLimpl"/>
 
-	
 </beans>

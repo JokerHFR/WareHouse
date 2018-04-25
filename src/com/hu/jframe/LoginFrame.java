@@ -29,7 +29,7 @@ import com.hu.spring.SprMb;
 		private JPasswordField tPassWord=new JPasswordField("123");
 		
 		private JButton bEnter=new JButton("登录");
-		private JButton bExit=new JButton("退出");
+		private JButton bExit=new JButton("注册");
 
 		private UserBL userBL=(UserBL) SprMb.actx.getBean("userBL");
 		
@@ -77,7 +77,7 @@ import com.hu.spring.SprMb;
 				String userWord=new String(tPassWord.getPassword());
 				if (login(this.tUserName.getText(),userWord)==1) { 			
                     this.loginsuccess(this.tUserName.getText());
-                    MainFrame mainFrame=new MainFrame();
+                    MainFrame mainFrame=new MainFrame(this.tUserName.getText(),userWord);
 					this.dispose();//关闭窗体，并释放窗体的内存空间。
 					mainFrame.setVisible(true);
 				} else if(login(this.tUserName.getText(),userWord)==0){ 
@@ -85,8 +85,9 @@ import com.hu.spring.SprMb;
 				}else{
 					JOptionPane.showMessageDialog(this, "用户已被禁用！","消息提示",JOptionPane.ERROR_MESSAGE);//显示消息提示框
 				}
-			} else if(e.getSource()==bExit){ //退出处理
-				System.exit(0);//直接结束进程，退出程序。
+			} else if(e.getSource()==bExit){ //注册
+				new RegisterFrame().setVisible(true);
+				this.dispose();
 			}
 		}
 		/**

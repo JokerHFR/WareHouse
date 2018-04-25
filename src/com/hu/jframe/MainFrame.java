@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import com.hu.jpanel.JPanel_10;
+import com.hu.jpanel.JPanel_9;
+
 public class MainFrame extends JFrame implements ActionListener{
 
 	/**
@@ -24,17 +27,25 @@ public class MainFrame extends JFrame implements ActionListener{
 	private JPanel[] jp_=new JPanel[11];
 	private CardLayout card;
 	
-	private String user="king";
+	private String uname;
+	private String uword;
+	
 	public MainFrame(){
+		
+	}
+	
+	public MainFrame(String uname,String uword){
 		this.card=new CardLayout();
 		this.jp=new JPanel();
 		this.jp.setLayout(card);
+		this.uname=uname;
+		this.uword=uword;
 		for(int i=0;i<jp_.length;i++){
 			this.jp_[i]=new JPanel();
 			jp_[i].add(new JLabel(" "+i));
 			this.jp.add(jp_[i],""+i);
 		}
-		this.setTitle("仓库管理系统"+"                                 登录用户："+user);
+		this.setTitle("仓库管理系统"+"                                 登录用户："+uname);
 		this.setSize(800, 500);//设置窗体的大小
 		//this.setLocation(500, 500);//设置窗体的位置
 		this.setLocationRelativeTo(null);//设置窗体居中显示
@@ -129,10 +140,12 @@ public class MainFrame extends JFrame implements ActionListener{
         	this.card.show(jp, "8");
 		}
         if(e.getSource()==this.jMenuItem5[0]){
-        	this.card.show(jp, "9");
+        	new JPanel_9().setVisible(true);
 		}
         if(e.getSource()==this.jMenuItem5[1]){
         	this.card.show(jp, "10");
+        	JPanel_10 jp10=new JPanel_10(this.uname,this.uword);
+    		jp10.setVisible(true);
 		}
  
         

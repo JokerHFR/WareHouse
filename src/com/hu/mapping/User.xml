@@ -7,10 +7,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="userLogin" resultType="User" parameterType="java.util.Map">
 		select * from w_user where username=#{uname} and passwordcode=#{uword} 
 	</select>
-	<select id="userRegister" resultType="User" parameterType="java.util.Map">
-		insert into w_user(username,passwordcode,isuse) values(#{uname},#{uword},1) 
+	<select id="userRegister" resultType="int" parameterType="java.util.Map">
+		insert into w_user(username,passwordcode,isuse) values(#{uname},#{uword},0) 
 	</select>
 	<select id="userChange" resultType="int" parameterType="java.util.Map">
 		update  w_user set passwordcode=#{uword}  where username=#{uname}
+	</select>
+	<select id="userFind" resultType="User" parameterType="java.util.Map">
+		select * from w_user where username=#{uname}
+	</select>
+	<select id="userallFind" resultType="User" parameterType="java.util.Map">
+		select * from w_user
+	</select>
+	<select id="userDelete" resultType="User" parameterType="java.util.Map">
+		delete from w_user where username=#{uname}
+	</select>
+	<select id="isuseUpdate" resultType="User" parameterType="java.util.Map">
+		update  w_user set isuse=1  where username=#{uname}
+	</select>
+	<select id="nouseUpdate" resultType="User" parameterType="java.util.Map">
+		update  w_user set isuse=0  where username=#{uname}
 	</select>
 </mapper>

@@ -1,7 +1,7 @@
 package Test;
 
-import com.hu.jframe.MainFrame;
-import com.hu.jpanel.JPanel_10;
+import com.hu.jframe.*;
+import com.hu.jpanel.*;
 
 public class TsetMain {
 
@@ -9,8 +9,8 @@ public class TsetMain {
 		// TODO Auto-generated method stub
 //        MainFrame mainFrame=new MainFrame();
 //        mainFrame.setVisible(true);
-		JPanel_10 jp10=new JPanel_10();
-		jp10.setVisible(true);
+		JPanel_9 rf=new JPanel_9();
+		rf.setVisible(true);
 	}
 
 }
