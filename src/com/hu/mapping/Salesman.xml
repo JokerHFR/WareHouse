@@ -4,5 +4,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="salesman">
-	
+	<select id="salesmanfindAll" resultType="Salesman" parameterType="java.util.Map">
+		select * from w_salesman  
+	</select>
+	<select id="salesmaninsert" resultType="int" parameterType="java.util.Map">
+		insert into w_salesman values(#{salesmanid},#{salesmanname},#{salesmantele},#{salesmanmob},#{salesmanadd},#{salesmanemail})
+  
+	</select>
+	<select id="salesmanupdate" resultType="int" parameterType="java.util.Map">
+		update w_salesman set salesmanname=#{salesmanname},salesmantele=#{salesmantele},salesmanmob=#{salesmanmob},salesmanadd=#{salesmanadd},salesmanemail=#{salesmanemail} where salesmanid=#{salesmanid}
+	</select>
+	<select id="salesmandelete" resultType="int" parameterType="java.util.Map">
+		delete from w_salesman where salesmanid=#{salesmanid} 
+	</select>
 </mapper>

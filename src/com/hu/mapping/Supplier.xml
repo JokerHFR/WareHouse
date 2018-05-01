@@ -4,5 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="supplier">
-	
+		<select id="supplierfindAll" resultType="com.hu.model.Supplier" parameterType="java.util.Map">
+		select * from w_supplier  
+	</select>
+	<select id="supplierinsert" resultType="int" parameterType="java.util.Map">
+		insert into w_supplier values(#{SupplierID},#{SupplierSimpleName},#{SupplierName},#{SupplierOwner},#{SupplierTele},#{SupplierMob},#{SupplierFax},#{SuppliercomAddress},#{SupplierFacAddress},#{SupplierLastPurDate})
+  
+	</select>
+	<select id="supplierupdate" resultType="int" parameterType="java.util.Map">
+		update w_supplier set SupplierSimpleName=#{SupplierSimpleName},SupplierName=#{SupplierName},
+		SupplierOwner=#{SupplierOwner},SupplierTele=#{SupplierTele},SupplierMob=#{SupplierMob},
+		SupplierFax=#{SupplierFax},SuppliercomAddress=#{SuppliercomAddress},SupplierFacAddress=#{SupplierFacAddress},
+		SupplierLastPurDate=#{SupplierLastPurDate}
+		where SupplierID=#{SupplierID}
+	</select>
+	<select id="supplierdelete" resultType="int" parameterType="java.util.Map">
+		delete from w_supplier where supplierid=#{supplierid} 
+	</select>
 </mapper>

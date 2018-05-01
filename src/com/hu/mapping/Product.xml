@@ -4,5 +4,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="product">
-	
+        <!-- 定义数据库字段与实体对象的映射关系  -->  
+        <resultMap type="Product" id="productbean">  
+        <id column="ProductID" property="ProductID" />  
+        <result column="ProductName" property="ProductName" />  
+        <result column="ProductUnit" property="ProductUnit" />  
+        <result column="SafeStock" property="SafeStock" />  
+        <result column="LastPurDate" property="LastPurDate" />  
+        <result column="LastDelDate" property="LastDelDate" />  
+        <result column="Quantity" property="Quantity" /> 
+        <result column="SuggestBuyPrice" property="SuggestBuyPrice" />  
+        <result column="SuggestSalePrice" property="SuggestSalePrice" />  
+        <result column="FK_SupplierID" property="FK_SupplierID" />
+        <!-- 一对一的关系 -->  
+        <!-- property: 指的是属性的值, javaType：指的是元素的类型 -->  
+        <association property="supplier"  javaType="Supplier">  
+             <id column="SupplierID" property="SupplierID" />
+             <result column="SupplierSimpleName" property="SupplierSimpleName" />  
+             <result column="SupplierName" property="SupplierName" />  
+             <result column="SupplierOwner" property="SupplierOwner" />  
+             <result column="SupplierTele" property="SupplierTele" />  
+             <result column="SupplierMob" property="SupplierMob" />  
+             <result column="SupplierFax" property="SupplierFax" />  
+             <result column="SuppliercomAddress" property="SuppliercomAddress" />  
+             <result column="SupplierFacAddress" property="SupplierFacAddress" />  
+             <result column="SupplierLastPurDate" property="SupplierLastPurDate" />  
+             </association>
+    </resultMap>  
+    
+	<select id="productfindAll" resultMap="productbean" parameterType="java.util.Map">
+		select p.*,s.* from w_product p,w_supplier s where p.fk_supplierid=s.supplierid
+	</select>
+	<select id="productinsert" resultType="int" parameterType="java.util.Map">
+		insert into w_product values(#{productid},#{productname},#{productunit},#{safestock},#{lastpurdate},#{lastdeldate},#{quantity},#{suggestbuyprice},#{suggestsaleprice},#{supplierid})
+  
+	</select>
+	<select id="productupdate" resultType="int" parameterType="java.util.Map">
+		update w_product set productname=#{productname},productunit=#{productunit},safestock=#{safestock},lastpurdate=#{lastpurdate},lastdeldate=#{lastdeldate},quantity=#{quantity},suggestbuyprice=#{suggestbuyprice},suggestsaleprice=#{suggestsaleprice},fk_supplierid=#{supplierid} where productid=#{productid}
+	</select>
+	<select id="productdelete" resultType="int" parameterType="java.util.Map">
+		delete from w_product where productid=#{productid} 
+	</select>
+	<select id="productfindbysupplierid" resultType="int" parameterType="java.util.Map">
+		select * from w_product where fk_supplierid=#{supplierid}
+	</select>
 </mapper>

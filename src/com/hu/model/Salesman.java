@@ -10,7 +10,26 @@ public class Salesman {
      private String SalesManAdd;
      private String SalesManEmail;
      
+     public Salesman(){
+    	 
+     }
      
+     public Salesman(String SalesManName,String SalesManTele,String SalesManMob,String SalesManAdd,String SalesManEmail){
+    	 this.SalesManName=SalesManName;
+    	 this.SalesManTele=SalesManTele;
+    	 this.SalesManMob=SalesManMob;
+    	 this.SalesManAdd=SalesManAdd;
+    	 this.SalesManEmail=SalesManEmail;
+     }
+     
+     public Salesman(long SalesManID,String SalesManName,String SalesManTele,String SalesManMob,String SalesManAdd,String SalesManEmail){
+    	 this.SalesManID=SalesManID;
+    	 this.SalesManName=SalesManName;
+    	 this.SalesManTele=SalesManTele;
+    	 this.SalesManMob=SalesManMob;
+    	 this.SalesManAdd=SalesManAdd;
+    	 this.SalesManEmail=SalesManEmail;
+     }
      public long getSalesManID() {
 		return SalesManID;
 	}

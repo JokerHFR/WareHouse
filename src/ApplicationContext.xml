@@ -47,7 +47,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<!-- <property name="configLocation" value="classpath:SqlMapConfig.xml"/> -->
-		<property name="typeAliasesPackage" value="com.hu.model"/>
+		 <property name="typeAliasesPackage" value="com.hu.model"/>
 		<property name="mapperLocations" value="classpath:com/hu/mapping/*.xml"/>
 	</bean>
 	
@@ -78,9 +78,6 @@
 	<!-- 事物主方法一定是public的，并且类名要以BL结尾-->
 	
 	<!-- 配置DAO -->
-	<bean id="buyerDAOimpl" class="com.hu.dao.impl.BuyerDAOimpl">
-		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
-	</bean>
 	<bean id="cuscontactmanDAOimpl" class="com.hu.dao.impl.CuscontactmanDAOimpl">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
@@ -116,7 +113,6 @@
 	</bean>
 	
 	<!-- 配置BL -->
-	<bean id="buyerBL" class="com.hu.blservice.impl.BuyerBLimpl"/>
 	<bean id="cuscontactmanBL" class="com.hu.blservice.impl.CuscontactmanBLimpl"/>
 	<bean id="customerBL" class="com.hu.blservice.impl.CustomerBLimpl"/>
 	<bean id="deliverydetailBL" class="com.hu.blservice.impl.DeliverydetailBLimpl"/>

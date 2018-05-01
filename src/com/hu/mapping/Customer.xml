@@ -4,5 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="customer">
-	
+	<select id="customerfindAll" resultType="Customer" parameterType="java.util.Map">
+		select * from w_customer  
+	</select>
+	<select id="customerinsert" resultType="int" parameterType="java.util.Map">
+		insert into w_customer values(#{CustomerID},#{CustomerSimpleName},#{CustomerName},#{CustomerOwner},#{CustomerTele},#{CustomerMob},#{CustomerFax},#{CustomerAddress},#{DeliveryAddress},#{InvoiceAddress},#{LastDeliveryDate})
+  
+	</select>
+	<select id="customerupdate" resultType="int" parameterType="java.util.Map">
+		update w_customer set CustomerSimpleName=#{CustomerSimpleName},CustomerName=#{CustomerName},
+		CustomerOwner=#{CustomerOwner},CustomerTele=#{CustomerTele},CustomerMob=#{CustomerMob},
+		CustomerFax=#{CustomerFax},CustomerAddress=#{CustomerAddress},DeliveryAddress=#{DeliveryAddress},
+		InvoiceAddress=#{InvoiceAddress},LastDeliveryDate=#{LastDeliveryDate}
+		where CustomerID=#{CustomerID}
+	</select>
+	<select id="customerdelete" resultType="int" parameterType="java.util.Map">
+		delete from w_customer where customerid=#{customerid} 
+	</select>
 </mapper>

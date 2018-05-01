@@ -1,9 +1,7 @@
 package com.hu.jpanel;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -32,7 +30,7 @@ public class JPanel_9 extends JFrame implements ActionListener{
 	private JButton jb1,jb2,jb3;
      public JPanel_9() {
 		// TODO Auto-generated constructor stub
-    	 this.setTitle("用户管理");
+    	this.setTitle("用户管理");
  		this.setSize(800, 470);//设置窗体的大小
  		//this.setLocation(500, 500);//设置窗体的位置
  		this.setLocationRelativeTo(null);//设置窗体居中显示

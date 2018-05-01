@@ -19,13 +19,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="userallFind" resultType="User" parameterType="java.util.Map">
 		select * from w_user
 	</select>
-	<select id="userDelete" resultType="User" parameterType="java.util.Map">
+	<select id="userDelete" resultType="com.hu.model.User" parameterType="java.util.Map">
 		delete from w_user where username=#{uname}
 	</select>
-	<select id="isuseUpdate" resultType="User" parameterType="java.util.Map">
+	<select id="isuseUpdate" resultType="com.hu.model.User" parameterType="java.util.Map">
 		update  w_user set isuse=1  where username=#{uname}
 	</select>
-	<select id="nouseUpdate" resultType="User" parameterType="java.util.Map">
+	<select id="nouseUpdate" resultType="com.hu.model.User" parameterType="java.util.Map">
 		update  w_user set isuse=0  where username=#{uname}
 	</select>
 </mapper>

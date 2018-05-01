@@ -1,5 +1,7 @@
 package com.hu.dao;
 
-public interface DeliverydetailDAO {
+import com.hu.model.Deliverydetail;
 
+public interface DeliverydetailDAO {
+	public int insertdeliverydetail(Deliverydetail deliverydetail);
 }

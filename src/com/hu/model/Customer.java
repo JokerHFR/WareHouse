@@ -7,7 +7,6 @@ public class Customer {
     private String CustomerSimpleName;
     private String CustomerName;
     private String CustomerOwner;
-    private String CustomerTitle;
     private String CustomerTele;
     private String CustomerMob;
     private String CustomerFax;
@@ -15,9 +14,26 @@ public class Customer {
     private String DeliveryAddress;
     private String InvoiceAddress;
     private Date LastDeliveryDate;
-    private Salesman Salesman;
     
-    
+    public Customer(){
+    	
+    }
+    public Customer(long CustomerID,String CustomerSimpleName,String CustomerName,String CustomerOwner,
+    		        String CustomerTele,String CustomerMob,String CustomerFax,String CustomerAddress,String DeliveryAddress,
+                    String InvoiceAddress,Date LastDeliveryDate){
+    	this.CustomerID=CustomerID;
+    	this.CustomerSimpleName=CustomerSimpleName;
+    	this.CustomerName=CustomerName;
+    	this.CustomerOwner=CustomerOwner;
+    	this.CustomerTele=CustomerTele;
+    	this.CustomerMob=CustomerMob;
+    	this.CustomerFax=CustomerFax;
+    	this.CustomerAddress=CustomerAddress;
+    	this.DeliveryAddress=DeliveryAddress;
+    	this.InvoiceAddress=InvoiceAddress;
+    	this.LastDeliveryDate=LastDeliveryDate;
+    	
+    }
 	public long getCustomerID() {
 		return CustomerID;
 	}
@@ -41,12 +57,6 @@ public class Customer {
 	}
 	public void setCustomerOwner(String customerOwner) {
 		CustomerOwner = customerOwner;
-	}
-	public String getCustomerTitle() {
-		return CustomerTitle;
-	}
-	public void setCustomerTitle(String customerTitle) {
-		CustomerTitle = customerTitle;
 	}
 	public String getCustomerTele() {
 		return CustomerTele;
@@ -89,11 +99,5 @@ public class Customer {
 	}
 	public void setLastDeliveryDate(Date lastDeliveryDate) {
 		LastDeliveryDate = lastDeliveryDate;
-	}
-	public Salesman getSalesman() {
-		return Salesman;
-	}
-	public void setSalesman(Salesman salesman) {
-		Salesman = salesman;
 	}
 }

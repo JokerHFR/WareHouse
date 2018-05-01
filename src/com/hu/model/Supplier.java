@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Supplier {
 	
-	private long SupplierID;
+	   private long SupplierID;
 	   private String SupplierSimpleName;
 	   private String SupplierName;
 	   private String SupplierOwner;
@@ -15,7 +15,23 @@ public class Supplier {
 	   private String SupplierFacAddress;
 	   private Date SupplierLastPurDate;
 	   
-	   
+	   public Supplier(){
+		   
+	   }
+	   public Supplier(long SupplierID,String SupplierSimpleName,String SupplierName,String SupplierOwner,
+		        String SupplierTele,String SupplierMob,String SupplierFax,String SuppliercomAddress,String SupplierFacAddress,
+               Date SupplierLastPurDate){
+	this.SupplierID=SupplierID;
+	this.SupplierSimpleName=SupplierSimpleName;
+	this.SupplierName=SupplierName;
+	this.SupplierOwner=SupplierOwner;
+	this.SupplierTele=SupplierTele;
+	this.SupplierMob=SupplierMob;
+	this.SupplierFax=SupplierFax;
+	this.SuppliercomAddress=SuppliercomAddress;
+	this.SupplierFacAddress=SupplierFacAddress;
+	this.SupplierLastPurDate=SupplierLastPurDate;
+	   }
 	   
    public long getSupplierID() {
 		return SupplierID;

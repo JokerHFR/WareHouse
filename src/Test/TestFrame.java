@@ -1,70 +1,144 @@
 package Test;
-import java.awt.*;  
-import java.awt.event.*;  
-  
-import javax.swing.*;  
-  
-public class TestFrame extends JFrame {  
-      
-      
-    private JButton button;  
-    private JPanel buttonPanel, imagePanel;  
-    private JScrollPane scrollPane;  
-    double count = 0;  
-  
-    public TestFrame(int xPixels, int yPixels) {  
-        super("Add Image");  
-  
-        button = new JButton("Add Image");  
-        button.setPreferredSize(new Dimension(80, 25));  
-        button.setMargin(new Insets(0, 5, 0, 5));  
-  
-          
-        imagePanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 5));  
-        scrollPane = new JScrollPane(imagePanel);  
-        imagePanel.setPreferredSize(new Dimension(xPixels, yPixels));// 这是关键的2句  
-        scrollPane.setPreferredSize(new Dimension(xPixels, yPixels));  
-        System.out.println(imagePanel.getHeight() + " OOO  "  
-                + imagePanel.getWidth());  
-  
-        button.addActionListener(new ActionListener() {  
-            public void actionPerformed(ActionEvent e) {  
-                count++;  
-                System.out.println("dfdsds");  
-                // label = new JLabel(image);  
-                JButton button = new JButton("bu" + count);  
-                button.setPreferredSize(new Dimension(200, 200));  
-                imagePanel.add(button);  
-                //validate();  
-  
-                System.out.println(imagePanel.getHeight() + " "  
-                        + imagePanel.getWidth());  
-                int column = (imagePanel.getWidth()) / 200;  
-                System.out.println("count " + count);  
-                System.out.println("列数  " + column);  
-                double row = count / column;  
-                System.out.println("行数 " + row);  
-                int d = (int) Math.ceil(row);  
-                System.out.println("行数进一 " +d );  
-                imagePanel.setPreferredSize(new Dimension(500,(int) (d * 205)));//  
-                //  
-                imagePanel.revalidate();  
-                imagePanel.repaint();  
-                  
-            }  
-        });  
-  
-        buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));  
-        buttonPanel.add(button);  
-  
-        add(buttonPanel, BorderLayout.NORTH);  
-        add(scrollPane, BorderLayout.CENTER);  
-  
-        setSize(xPixels, yPixels);  
-        setVisible(true);  
-    }  
-  
-    public static void main(String[] args) {  
-        new TestFrame(320, 400);  
-    }  
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+
+public class TestFrame extends JFrame{
+	
+	DefaultTableModel tableModel;		// 默认显示的表格
+	JButton add,del,exit,save;		// 各处理按钮
+	JTable table;		// 表格
+	
+	JPanel panelUP;	//增加信息的面板
+	
+	// 构造函数
+	public TestFrame(){
+		this.setBounds(300, 200, 600, 450);		// 设置窗体大小
+		this.setTitle("测试");		// 设置窗体名称
+		this.setLayout(new BorderLayout());	// 设置窗体的布局方式
+				
+		// 新建各按钮组件
+		add = new JButton("增加");
+		del = new JButton("删除");
+		save = new JButton("修改");
+		exit = new JButton("退出");
+		
+		panelUP = new JPanel();		// 新建按钮组件面板
+		panelUP.setLayout(new FlowLayout(FlowLayout.CENTER,50,10));	// 设置面板的布局方式
+		
+		// 将各按钮组件依次添加到面板中
+		panelUP.add(add);
+		panelUP.add(del);
+		panelUP.add(save);
+		panelUP.add(exit);
+		
+		// 取得haha数据库的aa表的各行数据
+		Vector<String> columnNames =new Vector<String>();
+		columnNames.add("姓名");
+		columnNames.add("年龄");
+		columnNames.add("性别");
+		
+		// 取得haha数据库的aa表的表头数据
+		Vector<Vector<String>>  rowData=new Vector<Vector<String>>();
+		for(int i=0;i<30;i++){
+			Vector<String> vector =new Vector<String>();
+			vector.add("张三"+i);
+			vector.add("10"+i);
+			vector.add("男"+i);
+			rowData.add(vector);
+		}
+		
+		// 新建表格
+		tableModel = new DefaultTableModel(rowData,columnNames);	
+		table = new JTable(tableModel);
+		
+		
+		JScrollPane s = new JScrollPane(table);
+		
+		// 将面板和表格分别添加到窗体中
+		this.add(panelUP,BorderLayout.SOUTH);
+		this.add(s);
+		
+		// 事件处理
+		MyEvent();
+		
+		this.setVisible(true);		// 显示窗体
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		 // 设置窗体可关闭
+	}
+	
+	// 事件处理
+	public void MyEvent(){
+		
+		// 增加
+		add.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// 增加一行空白区域
+				tableModel.addRow(new Vector<String>());
+			}
+			
+		});
+		
+		// 删除
+		del.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				// 删除指定行
+				int[]rowcount=table.getSelectedRows();
+				for(int i=rowcount.length-1;i>=0;i--){
+					tableModel.removeRow(rowcount[i]);
+					System.out.println(rowcount[i]);
+				}
+			}
+			
+		});
+		
+		/**
+		 * 保存
+		 * 我的解决办法是直接将aa表中的全部数据删除，
+		 * 将表格中的所有内容获取到,
+		 * 然后将表格数据重新写入aa表
+		 */
+		save.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {	
+				int column = table.getColumnCount();		// 表格列数
+				int row = table.getRowCount();		// 表格行数
+				
+				// value数组存放表格中的所有数据
+				String[][] value = new String[row][column];
+				
+				for(int i = 0; i < row; i++){
+					for(int j = 0; j < column; j++){
+						value[i][j] = table.getValueAt(i, j).toString();
+					}
+				}
+				
+				
+			}
+		});
+		
+		// 退出
+		exit.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+				System.exit(0);
+			}
+				
+		});
+	}
+	
+	// 主函数
+	public static void main(String[] args){
+		new TestFrame();
+	}
 }

@@ -5,7 +5,6 @@ import java.util.Date;
 public class Purchasemaster {
 	private long PurchaseID;
 	private Date PurchaseDate;
-	private Supplier Supplier;
 	private int PurchasePro;
 	public long getPurchaseID() {
 		return PurchaseID;
@@ -18,12 +17,6 @@ public class Purchasemaster {
 	}
 	public void setPurchaseDate(Date purchaseDate) {
 		PurchaseDate = purchaseDate;
-	}
-	public Supplier getSupplier() {
-		return Supplier;
-	}
-	public void setSupplier(Supplier supplier) {
-		Supplier = supplier;
 	}
 	public int getPurchasePro() {
 		return PurchasePro;

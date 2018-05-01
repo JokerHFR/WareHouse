@@ -12,8 +12,34 @@ public class Product {
    private long Quantity;
    private double SuggestBuyPrice;
    private double SuggestSalePrice;
+   private long FK_SupplierID;
+   private Supplier supplier;
    
-   
+   public Product( long ProductID,
+   String ProductName,
+   String ProductUnit,
+   long SafeStock,
+   Date LastPurDate,
+   Date LastDelDate,
+   long Quantity,
+   double SuggestBuyPrice,
+   double SuggestSalePrice,
+   Supplier supplier){
+	   
+	   this.ProductID=ProductID;
+	   this.ProductName=ProductName;
+	   this.ProductUnit=ProductUnit;
+	   this.SafeStock=SafeStock;
+	   this.LastPurDate=LastPurDate;
+	   this.LastDelDate=LastDelDate;
+	   this.Quantity=Quantity;
+	   this.SuggestBuyPrice=ProductID;
+	   this.SuggestSalePrice=SuggestSalePrice;
+	   this.supplier=supplier;
+   }
+   public Product(){
+	   
+   }
 public long getProductID() {
 	return ProductID;
 }
@@ -67,5 +93,17 @@ public double getSuggestSalePrice() {
 }
 public void setSuggestSalePrice(double suggestSalePrice) {
 	SuggestSalePrice = suggestSalePrice;
+}
+public Supplier getSupplier() {
+	return supplier;
+}
+public void setSupplier(Supplier supplier) {
+	this.supplier = supplier;
+}
+public long getFK_SupplierID() {
+	return FK_SupplierID;
+}
+public void setFK_SupplierID(long fK_SupplierID) {
+	FK_SupplierID = fK_SupplierID;
 }
 }
