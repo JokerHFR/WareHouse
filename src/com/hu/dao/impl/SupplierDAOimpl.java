@@ -23,7 +23,7 @@ public class SupplierDAOimpl implements SupplierDAO{
 	    @Override
 		public List<Supplier> findAllsupplier() {
 			// TODO Auto-generated method stub
-			return this.sqlSessionTemplate.selectList("supplier.supplierfindAll");
+			return this.sqlSessionTemplate.selectList("supplier.supplierfindAllProduct");
 		}
 
 		@Override

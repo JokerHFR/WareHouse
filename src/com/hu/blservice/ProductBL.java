@@ -1,5 +1,6 @@
 package com.hu.blservice;
 
+import java.util.Date;
 import java.util.List;
 
 import com.hu.model.Product;
@@ -35,4 +36,10 @@ public interface ProductBL {
       * @return
       */
      public int updateproduct(List<Product> Product);
+     /**
+      * 修改食品信息
+      * @param Product 食品信息
+      * @return
+      */
+     public int productupdatequa(List<Product> product,Date date);
 }

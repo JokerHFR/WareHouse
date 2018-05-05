@@ -38,12 +38,13 @@ public class DeliverymasterDAOimpl implements DeliverymasterDAO{
 		public int insertdeliverymaster(Deliverymaster deliverymaster) {
 			// TODO Auto-generated method stub
 			Map<String,Object> map=new HashMap<String, Object>();
-			map.put("PurchaseID", deliverymaster.getDeliveryID());
+			map.put("DeliveryID", deliverymaster.getDeliveryID());
 	        map.put("DeliveryPro", deliverymaster.getDeliveryPro());
 	        map.put("DeliveryDate", deliverymaster.getDeliveryDate());
 	        map.put("FK_CustomerID", deliverymaster.getCustomer().getCustomerID());
 	        map.put("FK_SalesManID", deliverymaster.getSalesman().getSalesManID());
 	        map.put("DeliveryAddress", deliverymaster.getDeliveryAddress());
+	        map.put("DelMoney", deliverymaster.getDelMoney());
 	        return this.sqlSessionTemplate.insert("deliverymaster.deliverymasterinsert",map);
 		}
 
@@ -51,12 +52,13 @@ public class DeliverymasterDAOimpl implements DeliverymasterDAO{
 		public int updatedeliverymaster(Deliverymaster deliverymaster) {
 			// TODO Auto-generated method stub
 			Map<String,Object> map=new HashMap<String, Object>();
-			map.put("PurchaseID", deliverymaster.getDeliveryID());
+			map.put("DeliveryID", deliverymaster.getDeliveryID());
 	        map.put("DeliveryPro", deliverymaster.getDeliveryPro());
 	        map.put("DeliveryDate", deliverymaster.getDeliveryDate());
 	        map.put("FK_CustomerID", deliverymaster.getCustomer().getCustomerID());
 	        map.put("FK_SalesManID", deliverymaster.getSalesman().getSalesManID());
 	        map.put("DeliveryAddress", deliverymaster.getDeliveryAddress());
+	        map.put("DelMoney", deliverymaster.getDelMoney());
 	        return this.sqlSessionTemplate.update("deliverymaster.deliverymasterupdate",map);
 		}
 }

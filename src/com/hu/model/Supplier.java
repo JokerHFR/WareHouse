@@ -1,6 +1,7 @@
 package com.hu.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Supplier {
 	
@@ -14,6 +15,7 @@ public class Supplier {
 	   private String SuppliercomAddress;
 	   private String SupplierFacAddress;
 	   private Date SupplierLastPurDate;
+	   private List<Product> Product;
 	   
 	   public Supplier(){
 		   
@@ -92,6 +94,12 @@ public class Supplier {
 	}
 	public void setSupplierLastPurDate(Date supplierLastPurDate) {
 		SupplierLastPurDate = supplierLastPurDate;
+	}
+	public List<Product> getProduct() {
+		return Product;
+	}
+	public void setProduct(List<Product> product) {
+		Product = product;
 	}
    
 }

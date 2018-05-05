@@ -42,6 +42,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="productupdate" resultType="int" parameterType="java.util.Map">
 		update w_product set productname=#{productname},productunit=#{productunit},safestock=#{safestock},lastpurdate=#{lastpurdate},lastdeldate=#{lastdeldate},quantity=#{quantity},suggestbuyprice=#{suggestbuyprice},suggestsaleprice=#{suggestsaleprice},fk_supplierid=#{supplierid} where productid=#{productid}
 	</select>
+	<select id="productupdatequa" resultType="int" parameterType="java.util.Map">
+		update w_product p set p.lastdeldate=#{lastdeldate},p.quantity=p.quantity+#{quantity} where productid=#{productid}
+	</select>
 	<select id="productdelete" resultType="int" parameterType="java.util.Map">
 		delete from w_product where productid=#{productid} 
 	</select>

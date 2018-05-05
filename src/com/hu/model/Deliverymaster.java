@@ -1,6 +1,7 @@
 package com.hu.model;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 public class Deliverymaster {
     private long DeliveryID;
@@ -9,6 +10,21 @@ public class Deliverymaster {
     private Customer Customer;
     private Salesman Salesman;
     private String DeliveryAddress;
+    private double DelMoney;
+    
+    public Deliverymaster(){
+    	
+    }
+    public Deliverymaster(long DeliveryID,int DeliveryPro,Date date,Customer Customer,Salesman Salesman,String DeliveryAddress,double DelMoney){
+    	this.DeliveryID=DeliveryID;
+    	this.DeliveryPro=DeliveryPro;
+    	this.DeliveryDate=date;
+    	this.Customer=Customer;
+    	this.Salesman=Salesman;
+    	this.DeliveryAddress=DeliveryAddress;
+    	this.DelMoney=DelMoney;
+    	
+    }
 	public long getDeliveryID() {
 		return DeliveryID;
 	}
@@ -44,5 +60,11 @@ public class Deliverymaster {
 	}
 	public void setDeliveryAddress(String deliveryAddress) {
 		DeliveryAddress = deliveryAddress;
+	}
+	public double getDelMoney() {
+		return DelMoney;
+	}
+	public void setDelMoney(double delMoney) {
+		DelMoney = delMoney;
 	}
 }

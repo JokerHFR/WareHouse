@@ -1,5 +1,6 @@
 package com.hu.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.hu.model.Product;
@@ -10,4 +11,5 @@ public interface ProductDAO {
      public int deleteproduct(String ProductID); 
      public int insertproduct(Product product);  
      public int updateproduct(Product product);
+     public int productupdatequa(Product product,Date date);
 }

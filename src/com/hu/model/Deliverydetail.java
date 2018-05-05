@@ -5,7 +5,15 @@ public class Deliverydetail {
    private Product Product;
    private long SalesQua;
    private double SalesPrice;
-   
+   public Deliverydetail(){
+	   
+   }
+   public Deliverydetail(Deliverymaster Deliverymaster,Product Product,long SalesQua,double SalesPrice){
+	   this.Deliverymaster=Deliverymaster;
+	   this.Product=Product;
+	   this.SalesQua=SalesQua;
+	   this.SalesPrice=SalesPrice;
+   }
 public Deliverymaster getDeliverymaster() {
 	return Deliverymaster;
 }

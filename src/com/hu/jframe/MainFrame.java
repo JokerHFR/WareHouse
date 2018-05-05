@@ -7,8 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import com.hu.jpanel.JPanel_10;
-import com.hu.jpanel.JPanel_9;
+import com.hu.jpanel.*;
 
 public class MainFrame extends JFrame implements ActionListener{
 
@@ -24,7 +23,6 @@ public class MainFrame extends JFrame implements ActionListener{
 	private JMenuItem[] jMenuItem4=new JMenuItem[1];
 	private JMenuItem[] jMenuItem5=new JMenuItem[2];
 	private JPanel  jp;
-	private JPanel[] jp_=new JPanel[11];
 	private CardLayout card;
 	
 	private String uname;
@@ -40,11 +38,12 @@ public class MainFrame extends JFrame implements ActionListener{
 		this.jp.setLayout(card);
 		this.uname=uname;
 		this.uword=uword;
-		for(int i=0;i<jp_.length;i++){
-			this.jp_[i]=new JPanel();
-			jp_[i].add(new JLabel(" "+i));
-			this.jp.add(jp_[i],""+i);
-		}
+
+		this.jp.add(new JPanel_0(),"0");
+		this.jp.add(new JPanel_1(),"1");
+		this.jp.add(new JPanel_2(),"2");
+		this.jp.add(new JPanel_3(),"3");
+
 		this.setTitle("仓库管理系统"+"                                 登录用户："+uname);
 		this.setSize(800, 500);//设置窗体的大小
 		//this.setLocation(500, 500);//设置窗体的位置
@@ -52,12 +51,12 @@ public class MainFrame extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//设置窗体的关闭方式（默认值为窗体的隐藏）
 		this.setResizable(false);//设置不能通过窗体的拖拽，改变窗体的大小
 		
-		this.setLayout(new FlowLayout());//设置窗体的布局方式（按照坐标进行布局）
+		this.setLayout(null);//设置窗体的布局方式（按照坐标进行布局）
 		
 		this.jMenuBar=new JMenuBar();
 		
-		
-		this.add(jp,"Center");
+		this.jp.setBounds(0,0, 800, 450);
+		this.add(jp);
 		
 		//jMenu信息设置
 		jMenu[0]=new JMenu("        基本资料维护        ");

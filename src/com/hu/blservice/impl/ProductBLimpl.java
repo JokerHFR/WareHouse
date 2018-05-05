@@ -1,5 +1,6 @@
 package com.hu.blservice.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,16 @@ public class ProductBLimpl implements ProductBL{
 		int n=0;
 		for(int i=0;i<Product.size();i++){
 			n=this.productDAO.updateproduct(Product.get(i));
+		}
+		return n;
+	}
+
+	@Override
+	public int productupdatequa(List<Product> product,Date date) {
+		// TODO Auto-generated method stub
+		int n=0;
+		for(int i=0;i<product.size();i++){
+			n=this.productDAO.productupdatequa(product.get(i),date);
 		}
 		return n;
 	}

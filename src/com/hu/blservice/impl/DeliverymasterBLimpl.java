@@ -26,24 +26,32 @@ public class DeliverymasterBLimpl implements DeliverymasterBL{
 	@Override
 	public List<Deliverymaster> findAlldeliverymaster() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.deliverymasterDAO.findAlldeliverymaster();
 	}
 
 	@Override
 	public int deletedeliverymaster(String[] deliverymasterID) {
 		// TODO Auto-generated method stub
-		return 0;
+		int n=0;
+		for(int i=0;i<deliverymasterID.length;i++){
+		n=this.deliverymasterDAO.deletedeliverymaster(deliverymasterID[i]);
+		}
+		return n;
 	}
 
 	@Override
-	public int insertdeliverymaster(List<Deliverymaster> deliverymaster) {
+	public int insertdeliverymaster(Deliverymaster deliverymaster) {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.deliverymasterDAO.insertdeliverymaster(deliverymaster);
 	}
 
 	@Override
 	public int updatedeliverymaster(List<Deliverymaster> deliverymaster) {
 		// TODO Auto-generated method stub
-		return 0;
+		int n=0;
+		for(int i=0;i<deliverymaster.size();i++){
+		n=this.deliverymasterDAO.updatedeliverymaster(deliverymaster.get(i));
+		}
+		return n;
 	}
 }

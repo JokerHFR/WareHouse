@@ -26,6 +26,10 @@ public class DeliverydetailBLimpl implements DeliverydetailBL{
 	@Override
 	public int insertdeliverydetail(List<Deliverydetail> deliverydetail) {
 		// TODO Auto-generated method stub
-		return 0;
+		int n=0;
+		for(int i=0;i<deliverydetail.size();i++){
+			n=this.deliverydetailDAO.insertdeliverydetail(deliverydetail.get(i));
+		}
+		return n;
 	}
 }

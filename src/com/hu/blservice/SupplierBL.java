@@ -28,4 +28,5 @@ public interface SupplierBL {
       * @return
       */
      public int updatesupplier(List<Supplier> supplier);
+     
 }

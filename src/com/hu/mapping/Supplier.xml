@@ -4,9 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="supplier">
-		<select id="supplierfindAll" resultType="com.hu.model.Supplier" parameterType="java.util.Map">
-		select * from w_supplier  
-	</select>
 	<select id="supplierinsert" resultType="int" parameterType="java.util.Map">
 		insert into w_supplier values(#{SupplierID},#{SupplierSimpleName},#{SupplierName},#{SupplierOwner},#{SupplierTele},#{SupplierMob},#{SupplierFax},#{SuppliercomAddress},#{SupplierFacAddress},#{SupplierLastPurDate})
   
@@ -21,4 +18,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="supplierdelete" resultType="int" parameterType="java.util.Map">
 		delete from w_supplier where supplierid=#{supplierid} 
 	</select>
+	    <resultMap type="Supplier" id="SupplierBean">
+        <id property="SupplierID" column="SupplierID"/>
+        <result property="SupplierSimpleName" column="SupplierSimpleName"/>
+        <result property="SupplierName" column="SupplierName"/>
+        <result property="SupplierOwner" column="SupplierOwner"/>
+        <result property="SupplierTele" column="SupplierTele"/>
+        <result property="SupplierMob" column="SupplierMob"/>
+        <result property="SupplierFax" column="SupplierFax"/>
+        <result property="SuppliercomAddress" column="SuppliercomAddress"/>
+        <result property="SupplierFacAddress" column="SupplierFacAddress"/>
+        <result property="SupplierLastPurDate" column="SupplierLastPurDate"/>
+        <collection property="Product" ofType="Product">
+          <id column="ProductID" property="ProductID" />  
+        <result column="ProductName" property="ProductName" />  
+        <result column="ProductUnit" property="ProductUnit" />  
+        <result column="SafeStock" property="SafeStock" />  
+        <result column="LastPurDate" property="LastPurDate" />  
+        <result column="LastDelDate" property="LastDelDate" />  
+        <result column="Quantity" property="Quantity" /> 
+        <result column="SuggestBuyPrice" property="SuggestBuyPrice" />  
+        <result column="SuggestSalePrice" property="SuggestSalePrice" />  
+        <result column="FK_SupplierID" property="FK_SupplierID" />  
+        </collection>
+    </resultMap>
+    <select id="supplierfindAllProduct" resultMap="SupplierBean" parameterType="java.util.Map">
+		select s.*,p.* from w_supplier s,w_product p where s.supplierid=p.fk_supplierid
+	    </select>
+    
 </mapper>

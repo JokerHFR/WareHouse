@@ -4,5 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="deliverydetail">
-	
+	<select id="deliverydetailinsert" resultType="int" parameterType="java.util.Map">
+		insert into w_deliverydetail values(#{FK_DeliveryID},#{FK_ProductID},#{SalesQua},#{SalesPrice})
+	</select>
 </mapper>

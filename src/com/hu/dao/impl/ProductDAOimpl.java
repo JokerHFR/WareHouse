@@ -1,5 +1,6 @@
 package com.hu.dao.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,5 +75,16 @@ public class ProductDAOimpl implements ProductDAO{
 	        map.put("suggestsaleprice", product.getSuggestSalePrice());
 	        map.put("supplierid", product.getSupplier().getSupplierID());
 			return this.sqlSessionTemplate.update("product.productupdate", map);
+		}
+
+		@Override
+		public int productupdatequa(Product product, Date date) {
+			// TODO Auto-generated method stub
+			
+			Map<String,Object> map=new HashMap<String, Object>();
+	        map.put("productid", product.getProductID());
+	        map.put("lastdeldate", date);
+	        map.put("quantity", -product.getQuantity());
+			return this.sqlSessionTemplate.update("product.productupdatequa", map);
 		}
 }

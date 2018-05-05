@@ -21,7 +21,7 @@ public interface DeliverymasterBL {
       * @param supplier 销售单信息
       * @return
       */
-     public int insertdeliverymaster(List<Deliverymaster> deliverymaster);
+     public int insertdeliverymaster(Deliverymaster deliverymaster);
      /**
       * 修改销售单信息
       * @param supplier 销售单信息

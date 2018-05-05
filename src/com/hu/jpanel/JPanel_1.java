@@ -23,7 +23,7 @@ import com.hu.blservice.CustomerBL;
 import com.hu.model.Customer;
 import com.hu.spring.SprMb;
 
-public class JPanel_1 extends JFrame implements ActionListener{
+public class JPanel_1 extends JPanel implements ActionListener{
 	/**
 	 * 
 	 */
@@ -35,12 +35,12 @@ public class JPanel_1 extends JFrame implements ActionListener{
 	private List<Customer> list=new ArrayList<Customer>();
 	private CustomerBL customerBL=(CustomerBL) SprMb.actx.getBean("customerBL");
     public JPanel_1(){
-    	this.setTitle("客户资料维护");
+//    	this.setTitle("客户资料维护");
  		this.setSize(800, 470);//设置窗体的大小
  		//this.setLocation(500, 500);//设置窗体的位置
- 		this.setLocationRelativeTo(null);//设置窗体居中显示
- 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置窗体的关闭方式（默认值为窗体的隐藏）
- 		this.setResizable(false);//设置不能通过窗体的拖拽，改变窗体的大小
+// 		this.setLocationRelativeTo(null);//设置窗体居中显示
+// 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置窗体的关闭方式（默认值为窗体的隐藏）
+// 		this.setResizable(false);//设置不能通过窗体的拖拽，改变窗体的大小
  		this.setLayout(new BorderLayout());//设置窗体的布局方式（按照坐标进行布局）
  		
  	// 新建各按钮组件
@@ -108,7 +108,7 @@ public class JPanel_1 extends JFrame implements ActionListener{
  			this.add(s);
  			
  			this.table.setEnabled(false);
- 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);		 // 设置窗体可关闭
+// 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);		 // 设置窗体可关闭
  			
  			
  		}

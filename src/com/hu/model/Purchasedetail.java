@@ -5,7 +5,15 @@ public class Purchasedetail {
       private Product Product;
       private long PurchaseQua;
       private double PurchasePrice;
-      
+      public Purchasedetail(){
+    	  
+      }
+      public Purchasedetail(Purchasemaster Purchasemaster,Product Product,long PurchaseQua,double PurchasePrice){
+    	  this.Purchasemaster=Purchasemaster;
+    	  this.Product=Product;
+    	  this.PurchaseQua=PurchaseQua;
+    	  this.PurchasePrice=PurchasePrice;
+      }
 	public Purchasemaster getPurchasemaster() {
 		return Purchasemaster;
 	}
