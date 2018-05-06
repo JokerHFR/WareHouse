@@ -36,7 +36,7 @@ public class JPanel_4 extends JFrame implements ActionListener,SupJPanelListener
      private CustomerBL customerBL=(CustomerBL) SprMb.actx.getBean("customerBL");
      private SalesmanBL salesmanBL=(SalesmanBL) SprMb.actx.getBean("salesmanBL");
 	 public JPanel_4(){
-	    	this.setTitle("供应商资料维护");
+	    	this.setTitle("销售订单生成");
 	 		this.setSize(800, 470);//设置窗体的大小
 	 		//this.setLocation(500, 500);//设置窗体的位置
 	 		this.setLocationRelativeTo(null);//设置窗体居中显示

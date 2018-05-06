@@ -75,4 +75,14 @@ public class ProductBLimpl implements ProductBL{
 		}
 		return n;
 	}
+
+	@Override
+	public int productupdatequa(List<Product> product,int a) {
+		// TODO Auto-generated method stub
+		int n=0;
+		for(int i=0;i<product.size();i++){
+			n=this.productDAO.productupdatequa(product.get(i),a);
+		}
+		return n;
+	}
 }

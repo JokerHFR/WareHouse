@@ -1,5 +1,6 @@
 package com.hu.blservice;
 
+import java.util.Date;
 import java.util.List;
 
 import com.hu.model.Customer;
@@ -28,5 +29,10 @@ public interface CustomerBL {
       * @return
       */
      public int updatecustomer(List<Customer> customer);
-     
+     /**
+      * 修改客户进货日期
+      * @param customer 客户信息
+      * @return
+      */
+     public int updatecustomerdate(Customer customer,Date date);
 }

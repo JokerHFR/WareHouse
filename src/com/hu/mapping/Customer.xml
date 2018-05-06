@@ -21,4 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="customerdelete" resultType="int" parameterType="java.util.Map">
 		delete from w_customer where customerid=#{customerid} 
 	</select>
+	<select id="customerupdatedate" resultType="int" parameterType="java.util.Map">
+		update w_customer set LastDeliveryDate=#{LastDeliveryDate} where CustomerID=#{CustomerID} 
+	</select>
 </mapper>

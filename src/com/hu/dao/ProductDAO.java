@@ -12,4 +12,5 @@ public interface ProductDAO {
      public int insertproduct(Product product);  
      public int updateproduct(Product product);
      public int productupdatequa(Product product,Date date);
+	public int productupdatequa(Product product,int i);
 }

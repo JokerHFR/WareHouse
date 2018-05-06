@@ -1,5 +1,6 @@
 package com.hu.dao.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,6 +66,15 @@ public class CustomerDAOimpl implements CustomerDAO{
 	        map.put("InvoiceAddress", customer.getInvoiceAddress());
 	        map.put("LastDeliveryDate", customer.getLastDeliveryDate());
 			return this.sqlSessionTemplate.update("customer.customerupdate",map);
+		}
+
+		@Override
+		public int updatecustomerdate(Customer customer, Date date) {
+			// TODO Auto-generated method stub
+			Map<String,Object> map=new HashMap<String, Object>();
+			map.put("CustomerID", customer.getCustomerID());
+	        map.put("LastDeliveryDate", date);
+			return this.sqlSessionTemplate.update("customer.customerupdatedate",map);
 		}
 
 }

@@ -42,8 +42,13 @@ public class DeliverymasterDAOimpl implements DeliverymasterDAO{
 	        map.put("DeliveryPro", deliverymaster.getDeliveryPro());
 	        map.put("DeliveryDate", deliverymaster.getDeliveryDate());
 	        map.put("FK_CustomerID", deliverymaster.getCustomer().getCustomerID());
+	        if(deliverymaster.getDeliveryPro()==1){
 	        map.put("FK_SalesManID", deliverymaster.getSalesman().getSalesManID());
-	        map.put("DeliveryAddress", deliverymaster.getDeliveryAddress());
+	        map.put("DeliveryAddress", deliverymaster.getDeliveryAddress());}
+	        else if(deliverymaster.getDeliveryPro()==-1){
+	        	map.put("FK_SalesManID", null);
+		        map.put("DeliveryAddress", null);}
+	        
 	        map.put("DelMoney", deliverymaster.getDelMoney());
 	        return this.sqlSessionTemplate.insert("deliverymaster.deliverymasterinsert",map);
 		}

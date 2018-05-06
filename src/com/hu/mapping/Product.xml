@@ -51,4 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="productfindbysupplierid" resultType="int" parameterType="java.util.Map">
 		select * from w_product where fk_supplierid=#{supplierid}
 	</select>
+	<select id="productupdatequ" resultType="int" parameterType="java.util.Map">
+		update w_product p set p.quantity=p.quantity+#{quantity} where productid=#{productid}
+	</select>
 </mapper>

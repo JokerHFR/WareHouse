@@ -1,5 +1,6 @@
 package com.hu.blservice.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,5 +59,11 @@ public class CustomerBLimpl implements CustomerBL{
 		a=this.customerDAO.updatecustomer(customer.get(i));
 		}
 		return a;
+	}
+
+	@Override
+	public int updatecustomerdate(Customer customer, Date date) {
+		// TODO Auto-generated method stub
+		return this.customerDAO.updatecustomerdate(customer, date);
 	}
 }

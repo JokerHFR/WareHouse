@@ -42,4 +42,11 @@ public interface ProductBL {
       * @return
       */
      public int productupdatequa(List<Product> product,Date date);
+     
+     /**
+      * 修改食品信息
+      * @param Product 食品信息
+      * @return
+      */
+     public int productupdatequa(List<Product> product,int i);
 }

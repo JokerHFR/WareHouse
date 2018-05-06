@@ -1,18 +1,19 @@
 package com.hu.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.hu.model.Customer;
 
 public interface CustomerDAO {
 
-	List<Customer> findAllcustomer();
+	public List<Customer> findAllcustomer();
 
-	int deletecustomer(String string);
+	public int deletecustomer(String string);
 
-	int insertcustomer(Customer customer);
+	public int insertcustomer(Customer customer);
 
-	int updatecustomer(Customer customer);
+	public int updatecustomer(Customer customer);
 
-
+    public int updatecustomerdate(Customer customer,Date date);
 }

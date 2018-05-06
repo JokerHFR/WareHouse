@@ -87,4 +87,17 @@ public class ProductDAOimpl implements ProductDAO{
 	        map.put("quantity", -product.getQuantity());
 			return this.sqlSessionTemplate.update("product.productupdatequa", map);
 		}
+
+		@Override
+		public int productupdatequa(Product product,int i) {
+			// TODO Auto-generated method stub
+			Map<String,Object> map=new HashMap<String, Object>();
+	        map.put("productid", product.getProductID());
+	        if(i==1){
+	        map.put("quantity", product.getQuantity());
+	        }else{
+	        	 map.put("quantity", -product.getQuantity());
+	        }
+			return this.sqlSessionTemplate.update("product.productupdatequ", map);
+		}
 }
