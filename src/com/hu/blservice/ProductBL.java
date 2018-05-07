@@ -37,16 +37,24 @@ public interface ProductBL {
       */
      public int updateproduct(List<Product> Product);
      /**
-      * 修改食品信息
+      * 修改食品销售信息
       * @param Product 食品信息
       * @return
       */
      public int productupdatequa(List<Product> product,Date date);
      
      /**
-      * 修改食品信息
+      * 修改食品退货信息
       * @param Product 食品信息
       * @return
       */
      public int productupdatequa(List<Product> product,int i);
+     /**
+      * 修改食品进货信息
+      * @param Product 食品信息
+      * @return
+      */
+     public int productupdatepur(List<Product> product,Date date);
+     
+ 
 }

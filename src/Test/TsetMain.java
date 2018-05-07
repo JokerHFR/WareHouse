@@ -20,10 +20,10 @@ public class TsetMain {
 		// TODO Auto-generated method stub
 //        MainFrame mainFrame=new MainFrame();
 //        mainFrame.setVisible(true);
-		JPanel_5 rf=new JPanel_5();
-		rf.setVisible(true);
-//		MainFrame rf=new MainFrame("king","123");
+//		JPanel_7 rf=new JPanel_7();
 //		rf.setVisible(true);
+		MainFrame rf=new MainFrame("king","123");
+		rf.setVisible(true);
 //		SupplierBL supplierBL=(SupplierBL) SprMb.actx.getBean("supplierBL");
 //		List<Supplier> list=new ArrayList<Supplier>();
 //		list=supplierBL.findAllsupplier();

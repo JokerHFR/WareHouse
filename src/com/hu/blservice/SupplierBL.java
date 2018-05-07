@@ -1,5 +1,6 @@
 package com.hu.blservice;
 
+import java.util.Date;
 import java.util.List;
 
 import com.hu.model.Supplier;
@@ -28,5 +29,11 @@ public interface SupplierBL {
       * @return
       */
      public int updatesupplier(List<Supplier> supplier);
+     /**
+      * 修改供应商进货信息
+      * @param supplier 供应商信息
+      * @return
+      */
+     public int updatesupplierdate(Supplier supplier,Date date);
      
 }

@@ -1,7 +1,6 @@
 package com.hu.jframe;
 
 import java.awt.CardLayout;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -43,6 +42,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		this.jp.add(new JPanel_1(),"1");
 		this.jp.add(new JPanel_2(),"2");
 		this.jp.add(new JPanel_3(),"3");
+		this.jp.add(new JPanel_4(),"4");
+		this.jp.add(new JPanel_5(),"5");
+		this.jp.add(new JPanel_6(),"6");
+		this.jp.add(new JPanel_7(),"7");
 
 		this.setTitle("仓库管理系统"+"                                 登录用户："+uname);
 		this.setSize(800, 500);//设置窗体的大小
@@ -55,13 +58,13 @@ public class MainFrame extends JFrame implements ActionListener{
 		
 		this.jMenuBar=new JMenuBar();
 		
-		this.jp.setBounds(0,0, 800, 450);
+		this.jp.setBounds(0,0, 795, 450);
 		this.add(jp);
 		
 		//jMenu信息设置
 		jMenu[0]=new JMenu("        基本资料维护        ");
-		jMenu[1]=new JMenu("        采购管理        ");
-		jMenu[2]=new JMenu("        销售管理        ");
+		jMenu[1]=new JMenu("        销售管理        ");
+		jMenu[2]=new JMenu("        采购管理        ");
 	    jMenu[3]=new JMenu("        库存管理        ");
 	    jMenu[4]=new JMenu("        系统维护        ");
 	   
@@ -75,14 +78,14 @@ public class MainFrame extends JFrame implements ActionListener{
 	    	this.jMenuItem1[i].addActionListener(this);
 	    }
 	    
-	    jMenuItem2[0]=new JMenuItem("        采购单录入");
+	    jMenuItem2[0]=new JMenuItem("        销售单录入");
 	    jMenuItem2[1]=new JMenuItem("        退货单录入");
 	    for(int i=0;i<jMenuItem2.length;i++){
 	    	this.jMenu[1].add(jMenuItem2[i]);
 	    	this.jMenuItem2[i].addActionListener(this);
 	    }
 	    
-	    jMenuItem3[0]=new JMenuItem("        销售单录入");
+	    jMenuItem3[0]=new JMenuItem("        采购单录入");
 	    jMenuItem3[1]=new JMenuItem("        退货单录入");
 	    for(int i=0;i<jMenuItem3.length;i++){
 	    	this.jMenu[2].add(jMenuItem3[i]);
@@ -112,27 +115,35 @@ public class MainFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==this.jMenuItem1[0]){
+			this.jp.add(new JPanel_0(),"0");
 			this.card.show(jp, "0");
 		}
         if(e.getSource()==this.jMenuItem1[1]){
+        	this.jp.add(new JPanel_1(),"1");
         	this.card.show(jp, "1");
 		}
         if(e.getSource()==this.jMenuItem1[2]){
+        	this.jp.add(new JPanel_2(),"2");
         	this.card.show(jp, "2");
 		}
         if(e.getSource()==this.jMenuItem1[3]){
+        	this.jp.add(new JPanel_3(),"3");
         	this.card.show(jp, "3");
 		}
         if(e.getSource()==this.jMenuItem2[0]){
+        	this.jp.add(new JPanel_4(),"4");
         	this.card.show(jp, "4");
 		}
         if(e.getSource()==this.jMenuItem2[1]){
+        	this.jp.add(new JPanel_5(),"5");
         	this.card.show(jp, "5");
 		}
         if(e.getSource()==this.jMenuItem3[0]){
+        	this.jp.add(new JPanel_6(),"6");
         	this.card.show(jp, "6");
 		}
         if(e.getSource()==this.jMenuItem3[1]){
+        	this.jp.add(new JPanel_7(),"7");
         	this.card.show(jp, "7");
 		}
         if(e.getSource()==this.jMenuItem4[0]){

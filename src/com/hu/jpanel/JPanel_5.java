@@ -10,7 +10,6 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -23,7 +22,7 @@ import com.hu.model.Customer;
 import com.hu.model.Product;
 import com.hu.spring.SprMb;
 
-public class JPanel_5 extends JFrame implements ActionListener,TuiJPanelListener{
+public class JPanel_5 extends JPanel implements ActionListener,TuiJPanelListener{
 	 /**
 	 * 
 	 */
@@ -31,7 +30,7 @@ public class JPanel_5 extends JFrame implements ActionListener,TuiJPanelListener
 	 private JButton jb1,jb2;
 	 private JPanel jp1,jp2,jp3;
 	 private JLabel jl1;
-	 private List<TuiSupJPanel> jp=new ArrayList<TuiSupJPanel>();
+	 private List<TuiDelJPanel> jp=new ArrayList<TuiDelJPanel>();
 	 private JScrollPane s;
 	 private int size=0;
 	 private JComboBox<String> list1=new JComboBox<String>();
@@ -39,12 +38,12 @@ public class JPanel_5 extends JFrame implements ActionListener,TuiJPanelListener
     private ProductBL productBL=(ProductBL) SprMb.actx.getBean("productBL");
     private CustomerBL customerBL=(CustomerBL) SprMb.actx.getBean("customerBL");
 	 public JPanel_5(){
-	    	this.setTitle("退货单生成");
-	 		this.setSize(800, 470);//设置窗体的大小
-	 		//this.setLocation(500, 500);//设置窗体的位置
-	 		this.setLocationRelativeTo(null);//设置窗体居中显示
-	 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置窗体的关闭方式（默认值为窗体的隐藏）
-	 		this.setResizable(false);//设置不能通过窗体的拖拽，改变窗体的大小
+//	    	this.setTitle("退货单生成");
+//	 		this.setSize(800, 470);//设置窗体的大小
+//	 		//this.setLocation(500, 500);//设置窗体的位置
+//	 		this.setLocationRelativeTo(null);//设置窗体居中显示
+//	 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置窗体的关闭方式（默认值为窗体的隐藏）
+//	 		this.setResizable(false);//设置不能通过窗体的拖拽，改变窗体的大小
 	 		this.setLayout(new BorderLayout());//设置窗体的布局方式（按照坐标进行布局）
 	 		
 	 		jb1=new JButton("添加商品");
@@ -80,7 +79,7 @@ public class JPanel_5 extends JFrame implements ActionListener,TuiJPanelListener
 		// TODO Auto-generated method stub
 		if(e.getSource()==this.jb1){
 			this.size+=1;
-			TuiSupJPanel tuisupJPanel=new TuiSupJPanel(this.productBL);
+			TuiDelJPanel tuisupJPanel=new TuiDelJPanel(this.productBL);
 			tuisupJPanel.addTuiJPanelListener(this);
 			jp2.add(tuisupJPanel);
 			this.jp.add(tuisupJPanel);
@@ -104,7 +103,7 @@ public class JPanel_5 extends JFrame implements ActionListener,TuiJPanelListener
 		
 	}
 	@Override
-	public void RemovePanel(TuiSupJPanel tj) {
+	public void RemovePanel(TuiDelJPanel tj) {
 		// TODO Auto-generated method stub
 		this.jp2.remove(tj);
 		this.jp.remove(tj);

@@ -78,9 +78,6 @@
 	<!-- 事物主方法一定是public的，并且类名要以BL结尾-->
 	
 	<!-- 配置DAO -->
-	<bean id="cuscontactmanDAOimpl" class="com.hu.dao.impl.CuscontactmanDAOimpl">
-		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
-	</bean>
 	<bean id="customerDAOimpl" class="com.hu.dao.impl.CustomerDAOimpl">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
@@ -102,9 +99,6 @@
 	<bean id="salesmanDAOimpl" class="com.hu.dao.impl.SalesmanDAOimpl">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
-	<bean id="supcontactDAOimpl" class="com.hu.dao.impl.SupcontactDAOimpl">
-		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
-	</bean>
 	<bean id="supplierDAOimpl" class="com.hu.dao.impl.SupplierDAOimpl">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
 	</bean>
@@ -113,7 +107,6 @@
 	</bean>
 	
 	<!-- 配置BL -->
-	<bean id="cuscontactmanBL" class="com.hu.blservice.impl.CuscontactmanBLimpl"/>
 	<bean id="customerBL" class="com.hu.blservice.impl.CustomerBLimpl"/>
 	<bean id="deliverydetailBL" class="com.hu.blservice.impl.DeliverydetailBLimpl"/>
 	<bean id="deliverymasterBL" class="com.hu.blservice.impl.DeliverymasterBLimpl"/>
@@ -121,7 +114,6 @@
 	<bean id="purchasedetailBL" class="com.hu.blservice.impl.PurchasedetailBLimpl"/>
 	<bean id="purchasemasterBL" class="com.hu.blservice.impl.PurchasemasterBLimpl"/>
 	<bean id="salesmanBL" class="com.hu.blservice.impl.SalesmanBLimpl"/>
-	<bean id="supcontactBL" class="com.hu.blservice.impl.SupcontactBLimpl"/>
 	<bean id="supplierBL" class="com.hu.blservice.impl.SupplierBLimpl"/>
 	<bean id="userBL" class="com.hu.blservice.impl.UserBLimpl"/>
 

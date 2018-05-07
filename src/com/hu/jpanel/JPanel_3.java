@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -20,7 +19,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import com.hu.blservice.ProductBL;
-import com.hu.blservice.SupplierBL;
 import com.hu.model.Product;
 import com.hu.model.Supplier;
 import com.hu.spring.SprMb;

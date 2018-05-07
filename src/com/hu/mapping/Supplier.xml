@@ -45,5 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="supplierfindAllProduct" resultMap="SupplierBean" parameterType="java.util.Map">
 		select s.*,p.* from w_supplier s,w_product p where s.supplierid=p.fk_supplierid
 	    </select>
-    
+    <select id="supplierupdatedate" resultType="int" parameterType="java.util.Map">
+		update w_supplier set SupplierLastPurDate=#{SupplierLastPurDate} where SupplierID=#{SupplierID} 
+	</select>
 </mapper>

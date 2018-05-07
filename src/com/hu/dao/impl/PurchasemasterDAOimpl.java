@@ -40,6 +40,7 @@ public class PurchasemasterDAOimpl implements PurchasemasterDAO{
 			map.put("PurchaseID", purchasemaster.getPurchaseID());
 	        map.put("PurchaseDate", purchasemaster.getPurchaseDate());
 	        map.put("PurchasePro", purchasemaster.getPurchasePro());
+	        map.put("PurMoney", purchasemaster.getPurMoney());
 	        return this.sqlSessionTemplate.insert("purchasemaster.purchasemasterinsert",map);
 		}
 

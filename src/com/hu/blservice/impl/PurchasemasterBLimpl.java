@@ -26,7 +26,7 @@ public class PurchasemasterBLimpl implements PurchasemasterBL{
 	@Override
 	public List<Purchasemaster> findAllpurchasemaster() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.purchasemasterDAO.findAllpurchasemaster();
 	}
 
 	@Override
@@ -36,9 +36,9 @@ public class PurchasemasterBLimpl implements PurchasemasterBL{
 	}
 
 	@Override
-	public int insertpurchasemaster(List<Purchasemaster> purchasemaster) {
+	public int insertpurchasemaster(Purchasemaster purchasemaster) {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.purchasemasterDAO.insertpurchasemaster(purchasemaster);
 	}
 
 	@Override

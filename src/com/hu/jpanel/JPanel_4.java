@@ -16,7 +16,7 @@ import com.hu.listener.SupJPanelListener;
 import com.hu.model.*;
 import com.hu.spring.SprMb;
 
-public class JPanel_4 extends JFrame implements ActionListener,SupJPanelListener{
+public class JPanel_4 extends JPanel implements ActionListener,SupJPanelListener{
 	 /**
 	 * 
 	 */
@@ -25,7 +25,7 @@ public class JPanel_4 extends JFrame implements ActionListener,SupJPanelListener
 	 private JPanel jp1,jp2,jp3;
 	 private JLabel jl1,jl2,jl3;
 	 private JTextField jf;
-	 private List<SupJPanel> jp=new ArrayList<SupJPanel>();
+	 private List<DelJPanel> jp=new ArrayList<DelJPanel>();
 	 private JScrollPane s;
 	 private int size=0;
 	 private JComboBox<String> list1=new JComboBox<String>();
@@ -36,12 +36,12 @@ public class JPanel_4 extends JFrame implements ActionListener,SupJPanelListener
      private CustomerBL customerBL=(CustomerBL) SprMb.actx.getBean("customerBL");
      private SalesmanBL salesmanBL=(SalesmanBL) SprMb.actx.getBean("salesmanBL");
 	 public JPanel_4(){
-	    	this.setTitle("销售订单生成");
-	 		this.setSize(800, 470);//设置窗体的大小
-	 		//this.setLocation(500, 500);//设置窗体的位置
-	 		this.setLocationRelativeTo(null);//设置窗体居中显示
-	 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置窗体的关闭方式（默认值为窗体的隐藏）
-	 		this.setResizable(false);//设置不能通过窗体的拖拽，改变窗体的大小
+//	    	this.setTitle("销售订单生成");
+//	 		this.setSize(800, 470);//设置窗体的大小
+//	 		//this.setLocation(500, 500);//设置窗体的位置
+//	 		this.setLocationRelativeTo(null);//设置窗体居中显示
+//	 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//设置窗体的关闭方式（默认值为窗体的隐藏）
+//	 		this.setResizable(false);//设置不能通过窗体的拖拽，改变窗体的大小
 	 		this.setLayout(new BorderLayout());//设置窗体的布局方式（按照坐标进行布局）
 	 		
 	 		jb1=new JButton("添加商品");
@@ -89,7 +89,7 @@ public class JPanel_4 extends JFrame implements ActionListener,SupJPanelListener
 		// TODO Auto-generated method stub
 		if(e.getSource()==this.jb1){
 			this.size+=1;
-			SupJPanel supJPanel=new SupJPanel(this.productBL);
+			DelJPanel supJPanel=new DelJPanel(this.productBL);
 			supJPanel.addSupJPanelListener(this);
  			jp2.add(supJPanel);
  			this.jp.add(supJPanel);
@@ -115,7 +115,7 @@ public class JPanel_4 extends JFrame implements ActionListener,SupJPanelListener
 		
 	}
 	@Override
-	public void RemovePanel(SupJPanel sj) {
+	public void RemovePanel(DelJPanel sj) {
 		// TODO Auto-generated method stub
 		this.jp2.remove(sj);
 		this.jp.remove(sj);

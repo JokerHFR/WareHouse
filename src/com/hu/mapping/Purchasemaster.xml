@@ -4,5 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="purchasemaster">
-	
+	<select id="purchasemasterdelete" resultType="int" parameterType="java.util.Map">
+		delete from w_purchasemaster where PurchaseID=#{PurchaseID} 
+	</select>
+	<select id="purchasemasterinsert" resultType="int" parameterType="java.util.Map">
+		insert into w_purchasemaster values(#{PurchaseID},#{PurchaseDate},#{PurchasePro},#{PurMoney})
+	</select>
 </mapper>

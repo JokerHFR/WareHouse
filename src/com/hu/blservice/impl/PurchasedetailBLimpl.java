@@ -27,6 +27,10 @@ public class PurchasedetailBLimpl implements PurchasedetailBL{
 	@Override
 	public int insertpurchasedetail(List<Purchasedetail> purchasedetail) {
 		// TODO Auto-generated method stub
-		return 0;
+		int n=0;
+		for(int i=0;i<purchasedetail.size();i++){
+			n=this.purchasedetailDAO.insertpurchasedetail(purchasedetail.get(i));
+		}
+		return n;
 	}
 }

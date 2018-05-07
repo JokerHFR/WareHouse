@@ -21,7 +21,7 @@ public interface PurchasemasterBL {
       * @param supplier 进货单信息
       * @return
       */
-     public int insertpurchasemaster(List<Purchasemaster> purchasemaster);
+     public int insertpurchasemaster(Purchasemaster purchasemaster);
      /**
       * 修改进货单信息
       * @param supplier 进货单信息
