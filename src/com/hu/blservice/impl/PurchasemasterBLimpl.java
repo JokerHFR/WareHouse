@@ -32,7 +32,11 @@ public class PurchasemasterBLimpl implements PurchasemasterBL{
 	@Override
 	public int deletepurchasemaster(String[] purchasemasterID) {
 		// TODO Auto-generated method stub
-		return 0;
+		int n=0;
+		for(int i=0;i<purchasemasterID.length;i++){
+		n=this.purchasemasterDAO.deletepurchasemaster(purchasemasterID[i]);
+		}
+		return n;
 	}
 
 	@Override

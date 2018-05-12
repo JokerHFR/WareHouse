@@ -30,7 +30,7 @@ public class DeliverymasterDAOimpl implements DeliverymasterDAO{
 		public int deletedeliverymaster(String deliverymasterID) {
 			// TODO Auto-generated method stub
 			Map<String,Object> map=new HashMap<String, Object>();
-	        map.put("deliverymasterid", deliverymasterID);
+	        map.put("DeliveryID", deliverymasterID);
 			return this.sqlSessionTemplate.delete("deliverymaster.deliverymasterdelete",map);
 		}
 

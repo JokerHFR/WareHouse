@@ -1,4 +1,4 @@
-package com.hu.jpanel;
+package com.hu.jframe;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +9,7 @@ import com.hu.blservice.UserBL;
 import com.hu.spring.SprMb;
 
 
-public class JPanel_10 extends JFrame implements ActionListener{
+public class JFrame_1 extends JFrame implements ActionListener{
 
 	/**
 	 * 
@@ -23,12 +23,12 @@ public class JPanel_10 extends JFrame implements ActionListener{
 	
 	private UserBL userBL=(UserBL) SprMb.actx.getBean("userBL");
 	
-	public JPanel_10(){
+	public JFrame_1(){
 		
 	}
 	
 	
-    public JPanel_10(String uname,String uword){
+    public JFrame_1(String uname,String uword){
     	this.username=uname;
     	this.userword=uword;
    

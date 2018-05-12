@@ -4,6 +4,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="deliverymaster">
+	    <resultMap type="Deliverymaster" id="DeliverymasterBean">
+        <id property="DeliveryID" column="DeliveryID"/>
+        <result property="DeliveryPro" column="DeliveryPro"/>
+        <result property="DeliveryDate" column="DeliveryDate"/>
+        <result property="DeliveryAddress" column="DeliveryAddress"/>
+        <result property="DelMoney" column="DelMoney"/>
+        <association property="Salesman" javaType="Salesman">
+          <id column="SalesManID" property="SalesManID" />  
+        <result column="SalesManName" property="SalesManName" />  
+        <result column="SalesManTele" property="SalesManTele" />  
+        <result column="SalesManMob" property="SalesManMob" />  
+        <result column="SalesManAdd" property="SalesManAdd" />  
+        <result column="SalesManEmail" property="SalesManEmail" />  
+        </association>
+        <association property="Customer" javaType="Customer">
+          <id column="CustomerID" property="CustomerID" />    
+        <result column="CustomerName" property="CustomerName" />
+        <result column="CustomerTele" property="CustomerTele" />    
+        </association>
+        <collection property="Deliverydetail" ofType="Deliverydetail"> 
+        <result column="SalesQua" property="SalesQua" />  
+        <result column="SalesPrice" property="SalesPrice" />  
+         <association property="Product" javaType="Product">
+          <id column="ProductID" property="ProductID" />  
+        <result column="ProductName" property="ProductName" />  
+        <result column="ProductUnit" property="ProductUnit" />  
+        <result column="SafeStock" property="SafeStock" />  
+        <result column="LastPurDate" property="LastPurDate" />  
+        <result column="LastDelDate" property="LastDelDate" />  
+        <result column="Quantity" property="Quantity" /> 
+        <result column="SuggestBuyPrice" property="SuggestBuyPrice" />  
+        <result column="SuggestSalePrice" property="SuggestSalePrice" />  
+        <result column="FK_SupplierID" property="FK_SupplierID" />  
+        </association>
+        </collection>
+    </resultMap>
+    <select id="deliverymasterfindAll" resultMap="DeliverymasterBean" parameterType="java.util.Map">
+		select m.*,d.*,p.*,c.*,s.* from w_deliverymaster m left join w_deliverydetail d on d.FK_DeliveryID=m.DeliveryID join w_salesman s on s.SalesManID=m.FK_SalesManID or m.FK_SalesManID is null join w_customer c ON m.FK_CustomerID=c.CustomerID join w_product p on d.FK_ProductID=p.ProductID ;
+	</select>
 	<select id="deliverymasterdelete" resultType="int" parameterType="java.util.Map">
 		delete from w_deliverymaster where DeliveryID=#{DeliveryID} 
 	</select>

@@ -30,7 +30,7 @@ public class PurchasemasterDAOimpl implements PurchasemasterDAO{
 		public int deletepurchasemaster(String purchasemasterID) {
 			// TODO Auto-generated method stub
 			Map<String,Object> map=new HashMap<String, Object>();
-	        map.put("purchasemasterid", purchasemasterID);
+	        map.put("PurchaseID", purchasemasterID);
 			return this.sqlSessionTemplate.delete("purchasemaster.purchasemasterdelete",map);
 		}
 

@@ -1,12 +1,14 @@
 package com.hu.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Purchasemaster {
 	private long PurchaseID;
 	private Date PurchaseDate;
 	private int PurchasePro;
 	private double PurMoney;
+	 private List<Purchasedetail> Purchasedetail;
 	public Purchasemaster(){
 		
 	}
@@ -39,5 +41,11 @@ public class Purchasemaster {
 	}
 	public void setPurMoney(double purMoney) {
 		PurMoney = purMoney;
+	}
+	public List<Purchasedetail> getPurchasedetail() {
+		return Purchasedetail;
+	}
+	public void setPurchasedetail(List<Purchasedetail> purchasedetail) {
+		Purchasedetail = purchasedetail;
 	}
 }

@@ -15,12 +15,11 @@ public class MainFrame extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JMenuBar jMenuBar;
-	private JMenu[] jMenu=new JMenu[5];
+	private JMenu[] jMenu=new JMenu[4];
 	private JMenuItem[] jMenuItem1=new JMenuItem[4];
-	private JMenuItem[] jMenuItem2=new JMenuItem[2];
-	private JMenuItem[] jMenuItem3=new JMenuItem[2];
-	private JMenuItem[] jMenuItem4=new JMenuItem[1];
-	private JMenuItem[] jMenuItem5=new JMenuItem[2];
+	private JMenuItem[] jMenuItem2=new JMenuItem[3];
+	private JMenuItem[] jMenuItem3=new JMenuItem[3];
+	private JMenuItem[] jMenuItem4=new JMenuItem[2];
 	private JPanel  jp;
 	private CardLayout card;
 	
@@ -46,6 +45,8 @@ public class MainFrame extends JFrame implements ActionListener{
 		this.jp.add(new JPanel_5(),"5");
 		this.jp.add(new JPanel_6(),"6");
 		this.jp.add(new JPanel_7(),"7");
+		this.jp.add(new JPanel_8(),"8");
+		this.jp.add(new JPanel_9(),"9");
 
 		this.setTitle("仓库管理系统"+"                                 登录用户："+uname);
 		this.setSize(800, 500);//设置窗体的大小
@@ -65,8 +66,7 @@ public class MainFrame extends JFrame implements ActionListener{
 		jMenu[0]=new JMenu("        基本资料维护        ");
 		jMenu[1]=new JMenu("        销售管理        ");
 		jMenu[2]=new JMenu("        采购管理        ");
-	    jMenu[3]=new JMenu("        库存管理        ");
-	    jMenu[4]=new JMenu("        系统维护        ");
+	    jMenu[3]=new JMenu("        系统维护        ");
 	   
 	    //jMenuItem信息设置
 	    jMenuItem1[0]=new JMenuItem("        销售员资料        ");
@@ -80,6 +80,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	    
 	    jMenuItem2[0]=new JMenuItem("        销售单录入");
 	    jMenuItem2[1]=new JMenuItem("        退货单录入");
+	    jMenuItem2[2]=new JMenuItem("        销售单管理");
 	    for(int i=0;i<jMenuItem2.length;i++){
 	    	this.jMenu[1].add(jMenuItem2[i]);
 	    	this.jMenuItem2[i].addActionListener(this);
@@ -87,22 +88,18 @@ public class MainFrame extends JFrame implements ActionListener{
 	    
 	    jMenuItem3[0]=new JMenuItem("        采购单录入");
 	    jMenuItem3[1]=new JMenuItem("        退货单录入");
+	    jMenuItem3[2]=new JMenuItem("        采购单管理");
 	    for(int i=0;i<jMenuItem3.length;i++){
 	    	this.jMenu[2].add(jMenuItem3[i]);
 	    	this.jMenuItem3[i].addActionListener(this);
 	    }
 	    
-	    jMenuItem4[0]=new JMenuItem("       库存查询     ");
+	    
+	    jMenuItem4[0]=new JMenuItem("    用户资料管理");
+	    jMenuItem4[1]=new JMenuItem("    修改密码");
 	    for(int i=0;i<jMenuItem4.length;i++){
 	    	this.jMenu[3].add(jMenuItem4[i]);
 	    	this.jMenuItem4[i].addActionListener(this);
-	    }
-	    
-	    jMenuItem5[0]=new JMenuItem("    用户资料管理");
-	    jMenuItem5[1]=new JMenuItem("    修改密码");
-	    for(int i=0;i<jMenuItem5.length;i++){
-	    	this.jMenu[4].add(jMenuItem5[i]);
-	    	this.jMenuItem5[i].addActionListener(this);
 	    }
 	    
 	    for(int i=0;i<jMenu.length;i++){
@@ -138,6 +135,10 @@ public class MainFrame extends JFrame implements ActionListener{
         	this.jp.add(new JPanel_5(),"5");
         	this.card.show(jp, "5");
 		}
+        if(e.getSource()==this.jMenuItem2[2]){
+        	this.jp.add(new JPanel_8(),"8");
+        	this.card.show(jp, "8");
+		}
         if(e.getSource()==this.jMenuItem3[0]){
         	this.jp.add(new JPanel_6(),"6");
         	this.card.show(jp, "6");
@@ -146,21 +147,18 @@ public class MainFrame extends JFrame implements ActionListener{
         	this.jp.add(new JPanel_7(),"7");
         	this.card.show(jp, "7");
 		}
+        if(e.getSource()==this.jMenuItem3[2]){
+        	this.jp.add(new JPanel_9(),"9");
+        	this.card.show(jp, "9");
+		}
         if(e.getSource()==this.jMenuItem4[0]){
-        	this.card.show(jp, "8");
+        	new JFrame_0().setVisible(true);
 		}
-        if(e.getSource()==this.jMenuItem5[0]){
-        	new JPanel_9().setVisible(true);
-		}
-        if(e.getSource()==this.jMenuItem5[1]){
-        	this.card.show(jp, "10");
-        	JPanel_10 jp10=new JPanel_10(this.uname,this.uword);
+        if(e.getSource()==this.jMenuItem4[1]){
+        	JFrame_1 jp10=new JFrame_1(this.uname,this.uword);
     		jp10.setVisible(true);
 		}
  
         
 	}
-	
-	
-
 }

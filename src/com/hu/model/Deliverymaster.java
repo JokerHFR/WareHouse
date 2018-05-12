@@ -1,6 +1,7 @@
 package com.hu.model;
 
 import java.util.Date;
+import java.util.List;
 
 
 public class Deliverymaster {
@@ -11,6 +12,7 @@ public class Deliverymaster {
     private Salesman Salesman;
     private String DeliveryAddress;
     private double DelMoney;
+    private List<Deliverydetail> Deliverydetail;
     
     public Deliverymaster(){
     	
@@ -66,5 +68,11 @@ public class Deliverymaster {
 	}
 	public void setDelMoney(double delMoney) {
 		DelMoney = delMoney;
+	}
+	public List<Deliverydetail> getDeliverydetail() {
+		return Deliverydetail;
+	}
+	public void setDeliverydetail(List<Deliverydetail> deliverydetail) {
+		Deliverydetail = deliverydetail;
 	}
 }

@@ -4,6 +4,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="purchasemaster">
+	    <resultMap type="Purchasemaster" id="PurchasemasterBean">
+        <id property="PurchaseID" column="PurchaseID"/>
+        <result property="PurchaseDate" column="PurchaseDate"/>
+        <result property="PurchasePro" column="PurchasePro"/>
+        <result property="PurMoney" column="PurMoney"/>
+        <collection property="Purchasedetail" ofType="Purchasedetail"> 
+        <result column="PurchaseQua" property="PurchaseQua" />  
+        <result column="PurchasePrice" property="PurchasePrice" />  
+         <association property="Product" javaType="Product">
+        <id column="ProductID" property="ProductID" />  
+        <result column="ProductName" property="ProductName" />  
+        <result column="ProductUnit" property="ProductUnit" />  
+        <result column="SafeStock" property="SafeStock" />  
+        <result column="LastPurDate" property="LastPurDate" />  
+        <result column="LastDelDate" property="LastDelDate" />  
+        <result column="Quantity" property="Quantity" /> 
+        <result column="SuggestBuyPrice" property="SuggestBuyPrice" />  
+        <result column="SuggestSalePrice" property="SuggestSalePrice" />  
+        <association property="supplier"  javaType="Supplier">  
+        <id column="SupplierID" property="SupplierID" />
+        <result column="SupplierSimpleName" property="SupplierSimpleName" />  
+        <result column="SupplierName" property="SupplierName" />  
+        <result column="SupplierOwner" property="SupplierOwner" />  
+        <result column="SupplierTele" property="SupplierTele" />  
+        <result column="SupplierMob" property="SupplierMob" />  
+        <result column="SupplierFax" property="SupplierFax" />  
+        <result column="SuppliercomAddress" property="SuppliercomAddress" />  
+        <result column="SupplierFacAddress" property="SupplierFacAddress" />  
+        <result column="SupplierLastPurDate" property="SupplierLastPurDate" />  
+        </association> 
+        </association>
+        </collection>
+    </resultMap>
+    <select id="purchasemasterfindAll" resultMap="PurchasemasterBean" parameterType="java.util.Map">
+		select m.*,d.*,p.*,s.* from w_purchasemaster m left join w_purchasedetail d on d.FK_PurchaseID=m.PurchaseID  join w_product p on d.FK_ProductID=p.ProductID join w_supplier s on s.SupplierID=p.FK_SupplierID ;
+	</select>
 	<select id="purchasemasterdelete" resultType="int" parameterType="java.util.Map">
 		delete from w_purchasemaster where PurchaseID=#{PurchaseID} 
 	</select>
