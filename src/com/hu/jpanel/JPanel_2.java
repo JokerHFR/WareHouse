@@ -154,9 +154,13 @@ public class JPanel_2 extends JPanel implements ActionListener{
     					supplier.add(new Supplier(Long.parseLong(SupplierID),SupplierSimpleName,SupplierName,SupplierOnwer,SupplierTele,SupplierMob,
     							SupplierFax,SuppliercomAddress,SupplierFacAddress,SupplierLastPurDate ));
                     		}
-                	this.supplierBL.insertsupplier(supplier);
+                	int m=this.supplierBL.insertsupplier(supplier);
                 	this.table.clearSelection();
-                	JOptionPane.showMessageDialog(this, "添加成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	if(m==1){
+                    	JOptionPane.showMessageDialog(this, "添加成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                    	}else{
+                    	JOptionPane.showMessageDialog(this, "添加失败，有些信息不能为空！","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                    	}
             	}
 			}
             if(e.getSource()==this.update){
@@ -185,9 +189,13 @@ public class JPanel_2 extends JPanel implements ActionListener{
     					supplier.add(new Supplier(Long.parseLong(SupplierID),SupplierSimpleName,SupplierName,SupplierOnwer,SupplierTele,SupplierMob,
     							SupplierFax,SuppliercomAddress,SupplierFacAddress,SupplierLastPurDate ));
                     		}
-                	this.supplierBL.updatesupplier(supplier);
+                	int m=this.supplierBL.updatesupplier(supplier);
             	this.table.clearSelection();
-            	JOptionPane.showMessageDialog(this, "修改成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+            	if(m==1){
+                	JOptionPane.showMessageDialog(this, "修改成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	}else{
+                	JOptionPane.showMessageDialog(this, "修改失败，不能更改供应商编号","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	}
             	}
             }
             if(e.getSource()==this.edit){

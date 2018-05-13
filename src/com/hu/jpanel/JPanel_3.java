@@ -161,9 +161,13 @@ public class JPanel_3 extends JPanel implements ActionListener{
     					product.add(new Product(Long.parseLong(ProductID),ProductName,ProductUnit,Long.parseLong(SafeStock),LastPurDate,LastDelDate,
     							Long.parseLong(Quantity),Double.parseDouble(SuggestBuyPrice),Double.parseDouble(SuggestSalePrice),s ));
                     		}
-                	this.productBL.insertproduct(product);
+                	int m=this.productBL.insertproduct(product);
                 	this.table.clearSelection();
-                	JOptionPane.showMessageDialog(this, "添加成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	if(m==1){
+                    	JOptionPane.showMessageDialog(this, "添加成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                    	}else{
+                    	JOptionPane.showMessageDialog(this, "添加失败，有些信息不能为空！","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                    	}
             	}
 			}
             if(e.getSource()==this.update){
@@ -198,9 +202,13 @@ public class JPanel_3 extends JPanel implements ActionListener{
     					product.add(new Product(Long.parseLong(ProductID),ProductName,ProductUnit,Long.parseLong(SafeStock),LastPurDate,LastDelDate,
     							Long.parseLong(Quantity),Double.parseDouble(SuggestBuyPrice),Double.parseDouble(SuggestSalePrice),s ));
                     		}
-                	this.productBL.updateproduct(product);
+                	int m=this.productBL.updateproduct(product);
             	this.table.clearSelection();
-            	JOptionPane.showMessageDialog(this, "修改成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+            	if(m==1){
+                	JOptionPane.showMessageDialog(this, "修改成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	}else{
+                	JOptionPane.showMessageDialog(this, "修改失败，不能更改商品编号","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	}
             	}
             }
             if(e.getSource()==this.edit){

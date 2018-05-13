@@ -22,7 +22,7 @@ public class LookPurFrame extends JFrame implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel jp1,jp2,jp3;
-	private JLabel jl1,jl2,jl3,jl4,jl5,jl6;
+	private JLabel jl1,jl2,jl3,jl4,jl5;
 	private JButton jb2;
 	private List<Purchasedetail> purchasedetail;
 	private Purchasemaster purchasemaster;

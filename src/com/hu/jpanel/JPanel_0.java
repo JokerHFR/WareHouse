@@ -126,9 +126,13 @@ public class JPanel_0 extends JPanel implements ActionListener{
                 	String salesmanemail=table.getValueAt(rowcount[i], 5).toString();
                 	salseman.add(new Salesman(Long.parseLong(salesmanid),salesmanname,salesmantele,salesmanmob,salesmanadd,salesmanemail));
                 		}
-                	this.salesmanBL.insertsalesman(salseman);
+                	int m=this.salesmanBL.insertsalesman(salseman);
                 	this.table.clearSelection();
+                	if(m==1){
                 	JOptionPane.showMessageDialog(this, "添加成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	}else{
+                	JOptionPane.showMessageDialog(this, "添加失败，有些信息不能为空！","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	}
             	}
 			}
             if(e.getSource()==this.update){
@@ -145,9 +149,13 @@ public class JPanel_0 extends JPanel implements ActionListener{
             	String salesmanemail=table.getValueAt(rowcount[i], 5).toString();
             	salseman.add(new Salesman(Long.parseLong(salesmanid),salesmanname,salesmantele,salesmanmob,salesmanadd,salesmanemail));
             		}
-            	this.salesmanBL.updatesalesman(salseman);
+            	int m=this.salesmanBL.updatesalesman(salseman);
             	this.table.clearSelection();
+            	if(m==1){
             	JOptionPane.showMessageDialog(this, "修改成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+            	}else{
+            	JOptionPane.showMessageDialog(this, "修改失败，不能更改员工编号","提示信息",JOptionPane.INFORMATION_MESSAGE);
+            	}
             	}
             }
             if(e.getSource()==this.edit){

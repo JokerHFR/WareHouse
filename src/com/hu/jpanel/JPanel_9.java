@@ -10,18 +10,14 @@ import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import com.hu.blservice.DeliverymasterBL;
 import com.hu.blservice.PurchasemasterBL;
-import com.hu.jframe.LookDelFrame;
 import com.hu.jframe.LookPurFrame;
-import com.hu.model.Deliverymaster;
 import com.hu.model.Purchasemaster;
 import com.hu.spring.SprMb;
 

@@ -158,9 +158,13 @@ public class JPanel_1 extends JPanel implements ActionListener{
                     	customer.add(new Customer(Long.parseLong(CustomerID),CustomerSimpleName,CustomerName,CustomerOnwer,CustomerTele,CustomerMob,
                     			     CustomerFax,CustomerAddress,DeliveryAddress,InvoiceAddress,LastDeliveryDate ));
                     		}
-                	this.customerBL.insertcustomer(customer);
+                	int m=this.customerBL.insertcustomer(customer);
                 	this.table.clearSelection();
-                	JOptionPane.showMessageDialog(this, "添加成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	if(m==1){
+                    	JOptionPane.showMessageDialog(this, "添加成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                    	}else{
+                    	JOptionPane.showMessageDialog(this, "添加失败，有些信息不能为空！","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                    	}
             	}
 			}
             if(e.getSource()==this.update){
@@ -190,9 +194,13 @@ public class JPanel_1 extends JPanel implements ActionListener{
                 	customer.add(new Customer(Long.parseLong(CustomerID),CustomerSimpleName,CustomerName,CustomerOnwer,CustomerTele,CustomerMob,
                 			     CustomerFax,CustomerAddress,DeliveryAddress,InvoiceAddress,LastDeliveryDate ));
                 		}
-            	this.customerBL.updatecustomer(customer);
+            	int m=this.customerBL.updatecustomer(customer);
             	this.table.clearSelection();
-            	JOptionPane.showMessageDialog(this, "修改成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+            	if(m==1){
+                	JOptionPane.showMessageDialog(this, "修改成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	}else{
+                	JOptionPane.showMessageDialog(this, "修改失败，不能更改客户编号","提示信息",JOptionPane.INFORMATION_MESSAGE);
+                	}
             	}
             }
             if(e.getSource()==this.edit){
