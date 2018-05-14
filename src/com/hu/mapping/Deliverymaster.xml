@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </collection>
     </resultMap>
     <select id="deliverymasterfindAll" resultMap="DeliverymasterBean" parameterType="java.util.Map">
-		select m.*,d.*,p.*,c.*,s.* from w_deliverymaster m left join w_deliverydetail d on d.FK_DeliveryID=m.DeliveryID join w_salesman s on s.SalesManID=m.FK_SalesManID or m.FK_SalesManID is null join w_customer c ON m.FK_CustomerID=c.CustomerID join w_product p on d.FK_ProductID=p.ProductID ;
+		select m.*,d.*,p.*,c.*,s.* from w_deliverymaster m left join w_deliverydetail d on d.FK_DeliveryID=m.DeliveryID join w_salesman s on s.SalesManID=m.FK_SalesManID or m.FK_SalesManID is null join w_customer c ON m.FK_CustomerID=c.CustomerID join w_product p on d.FK_ProductID=p.ProductID order by m.DeliveryDate desc;
 	</select>
 	<select id="deliverymasterdelete" resultType="int" parameterType="java.util.Map">
 		delete from w_deliverymaster where DeliveryID=#{DeliveryID} 

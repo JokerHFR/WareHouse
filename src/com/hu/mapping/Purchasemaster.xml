@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </collection>
     </resultMap>
     <select id="purchasemasterfindAll" resultMap="PurchasemasterBean" parameterType="java.util.Map">
-		select m.*,d.*,p.*,s.* from w_purchasemaster m left join w_purchasedetail d on d.FK_PurchaseID=m.PurchaseID  join w_product p on d.FK_ProductID=p.ProductID join w_supplier s on s.SupplierID=p.FK_SupplierID ;
+		select m.*,d.*,p.*,s.* from w_purchasemaster m left join w_purchasedetail d on d.FK_PurchaseID=m.PurchaseID  join w_product p on d.FK_ProductID=p.ProductID join w_supplier s on s.SupplierID=p.FK_SupplierID order by m.PurchaseDate desc;
 	</select>
 	<select id="purchasemasterdelete" resultType="int" parameterType="java.util.Map">
 		delete from w_purchasemaster where PurchaseID=#{PurchaseID} 

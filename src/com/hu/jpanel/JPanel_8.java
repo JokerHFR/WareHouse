@@ -119,6 +119,7 @@ public class JPanel_8 extends JPanel implements ActionListener{
 					for(int i=rowcount.length-1;i>=0;i--){
 						DeliveryID[i]=table.getValueAt(rowcount[i], 0).toString();
 						tableModel.removeRow(rowcount[i]);
+						this.list.remove(rowcount[i]);
 					}
 					this.deliverymasterBL.deletedeliverymaster(DeliveryID);
 					JOptionPane.showMessageDialog(this, "删除成功","提示信息",JOptionPane.INFORMATION_MESSAGE);

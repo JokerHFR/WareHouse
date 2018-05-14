@@ -60,7 +60,7 @@ public class JPanel_9 extends JPanel implements ActionListener{
  			
  			// 取得haha数据库的aa表的各行数据
  			Vector<String> columnNames =new Vector<String>();
- 			columnNames.add("销售单号");
+ 			columnNames.add("进货单号");
  			columnNames.add("订单时间");
  			columnNames.add("订单总金额");
  			columnNames.add("供货商");
@@ -107,10 +107,12 @@ public class JPanel_9 extends JPanel implements ActionListener{
 				if(rowcount.length==0){
 				
 				}else{
+					
 					String[] PurchaseID=new String[rowcount.length];
 					for(int i=rowcount.length-1;i>=0;i--){
 						PurchaseID[i]=table.getValueAt(rowcount[i], 0).toString();
 						tableModel.removeRow(rowcount[i]);
+						this.list.remove(rowcount[i]);
 					}
 					this.purchasemasterBL.deletepurchasemaster(PurchaseID);
 					JOptionPane.showMessageDialog(this, "删除成功","提示信息",JOptionPane.INFORMATION_MESSAGE);
