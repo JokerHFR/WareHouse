@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from w_user where username=#{uname} and passwordcode=#{uword} 
 	</select>
 	<select id="userRegister" resultType="int" parameterType="java.util.Map">
-		insert into w_user(username,passwordcode,isuse) values(#{uname},#{uword},0) 
+		insert into w_user(username,passwordcode,isuse,issuper) values(#{uname},#{uword},0,0) 
 	</select>
 	<select id="userChange" resultType="int" parameterType="java.util.Map">
 		update  w_user set passwordcode=#{uword}  where username=#{uname}

@@ -5,7 +5,7 @@ public class User {
     private String username;
     private String userword;;
     private int isuse;
-    
+    private int issuper;
     public  User(){
     	
     }
@@ -40,6 +40,12 @@ public class User {
 	}
 	public void setIsuse(int isuse) {
 		this.isuse = isuse;
+	}
+	public int getIssuper() {
+		return issuper;
+	}
+	public void setIssuper(int issuper) {
+		this.issuper = issuper;
 	}
 }
 

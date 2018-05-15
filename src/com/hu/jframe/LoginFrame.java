@@ -32,7 +32,7 @@ import com.hu.spring.SprMb;
 		private JButton bExit=new JButton("注册");
 
 		private UserBL userBL=(UserBL) SprMb.actx.getBean("userBL");
-		
+		private User user;
 		public LoginFrame() { 
 			
 			this.setTitle("仓库管理系统登录");
@@ -77,7 +77,7 @@ import com.hu.spring.SprMb;
 				String userWord=new String(tPassWord.getPassword());
 				if (login(this.tUserName.getText(),userWord)==1) { 			
                     this.loginsuccess(this.tUserName.getText());
-                    MainFrame mainFrame=new MainFrame(this.tUserName.getText(),userWord);
+                    MainFrame mainFrame=new MainFrame(this.tUserName.getText(),userWord,this.user.getIssuper());
 					this.dispose();//关闭窗体，并释放窗体的内存空间。
 					mainFrame.setVisible(true);
 				} else if(login(this.tUserName.getText(),userWord)==0){ 
@@ -99,7 +99,7 @@ import com.hu.spring.SprMb;
 		public int login(String uname,String uword) { 
 			int flag=0;
 				try {
-                User user=userBL.findLogin(uname, uword);
+                user=userBL.findLogin(uname, uword);
                 if(user!=null&&user.getIsuse()==1){
                 	flag=1;
                 }else if(user!=null&&user.getIsuse()==0){
